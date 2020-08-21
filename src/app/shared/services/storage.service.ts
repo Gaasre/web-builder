@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Bloc } from '../models/bloc.model';
+import { Block } from '../models/block.model';
 import { Type } from '../models/type.model';
 import { findDeep } from 'deepdash-es/standalone';
 
@@ -13,7 +13,7 @@ export class StorageService {
   Types: Type[] = [
     {
       id: 1,
-      name: 'Bloc',
+      name: 'Block',
       defaultStyle: []
     },
     {
@@ -33,10 +33,10 @@ export class StorageService {
     },
   ];
 
-  Blocs: Bloc[] = [
+  Blocks: Block[] = [
     {
       id: 1,
-      name: 'Bloc 1',
+      name: 'Block 1',
       type: this.Types[0],
       style: [],
       hoverStyle: [],
@@ -55,7 +55,7 @@ export class StorageService {
         },
         {
           id: 3,
-          name: 'Bloc 4',
+          name: 'Block 4',
           type: this.Types[1],
           style: [],
           hoverStyle: [],
@@ -67,7 +67,7 @@ export class StorageService {
     }
   ];
 
-  findBloc(id: number) {
-    return findDeep(this.Blocs, (value, key) => key === 'id' && value === id)?.parent;
+  findBlock(id: number) {
+    return findDeep(this.Blocks, (value, key) => key === 'id' && value === id)?.parent;
   }
 }

@@ -1,23 +1,23 @@
 <div>
-  <div class="content" [ngStyle]="{display: isInlineBlock(bloc) ? 'inline-block' : 'block'}">
-    <div *ngIf="bloc.type.id === 2">
-      <div class="bloc-content" (click)="toggleBloc(bloc)" *ngIf="bloc.open === false">{{bloc.content}}</div>
-      <nz-input-group *ngIf="bloc.open === true" [nzSuffix]="confirmTemplate">
-        <input type="text" nz-input [(ngModel)]="bloc.content" />
+  <div class="content" [ngStyle]="{display: isInlineBlock(block) ? 'inline-block' : 'block'}">
+    <div *ngIf="block.type.id === 2">
+      <div class="block-content" (click)="toggleBlock(block)" *ngIf="block.open === false">{{block.content}}</div>
+      <nz-input-group *ngIf="block.open === true" [nzSuffix]="confirmTemplate">
+        <input type="text" nz-input [(ngModel)]="block.content" />
       </nz-input-group>
     </div>
-    <span *ngIf="bloc.type.id === 4">
-      <button nz-button nzType="default" (click)="toggleBloc(bloc)" *ngIf="bloc.open === false">{{bloc.name}}</button>
-      <nz-input-group *ngIf="bloc.open === true" [nzSuffix]="confirmTemplate">
-        <input type="text" nz-input [(ngModel)]="bloc.name" />
+    <span *ngIf="block.type.id === 4">
+      <button nz-button nzType="default" (click)="toggleBlock(block)" *ngIf="block.open === false">{{block.name}}</button>
+      <nz-input-group *ngIf="block.open === true" [nzSuffix]="confirmTemplate">
+        <input type="text" nz-input [(ngModel)]="block.name" />
       </nz-input-group>
     </span>
     <div>
-      <app-layers-view [bloc]="bloc" *ngFor="let bloc of bloc.children"></app-layers-view>
+      <app-layers-view [block]="block" *ngFor="let block of block.children"></app-layers-view>
     </div>
   </div>
 </div>
 
 <ng-template #confirmTemplate>
-  <i nz-icon nzType="check" (click)="toggleBloc(bloc)"></i>
+  <i nz-icon nzType="check" (click)="toggleBlock(block)"></i>
 </ng-template>

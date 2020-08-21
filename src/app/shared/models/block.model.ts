@@ -1,7 +1,7 @@
 import { Property } from './property.model';
 import { Type } from './type.model';
 
-export interface Bloc {
+export interface Block {
     // Attributes
     id: number;
     name: string;
@@ -10,7 +10,7 @@ export interface Bloc {
     hoverStyle: Property[];
     content: string;
     open: boolean;
-    children: Bloc[];
+    children: Block[];
 
     // Operations
 

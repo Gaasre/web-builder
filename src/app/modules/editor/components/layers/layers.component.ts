@@ -10,12 +10,12 @@ export class LayersComponent implements OnInit {
 
   constructor(private data: StorageService) { }
 
-  get Blocs() {
-    return this.data.Blocs;
+  get Blocks() {
+    return this.data.Blocks;
   }
 
   ngOnInit(): void {
-    console.log(this.data.findBloc(4));
+    console.log(this.data.findBlock(4));
   }
 
 }

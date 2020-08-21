@@ -10,8 +10,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private data: StorageService) { }
 
-  get Blocs() {
-    return this.data.Blocs;
+  get Blocks() {
+    return this.data.Blocks;
   }
 
   ngOnInit(): void {

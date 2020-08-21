@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Bloc } from 'src/app/shared/models/bloc.model';
+import { Block } from 'src/app/shared/models/block.model';
 
 @Component({
   selector: 'app-layers-view',
@@ -8,10 +8,10 @@ import { Bloc } from 'src/app/shared/models/bloc.model';
 })
 export class LayersViewComponent implements OnInit {
 
-  @Input() bloc: Bloc;
+  @Input() block: Block;
 
   get hasChildren(): boolean {
-    return this.bloc.children.length > 0;
+    return this.block.children.length > 0;
   }
 
   constructor() { }
@@ -19,12 +19,12 @@ export class LayersViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleBloc(bloc: Bloc): void {
-    bloc.open = !bloc.open;
+  toggleBlock(block: Block): void {
+    block.open = !block.open;
   }
 
-  isInlineBlock(bloc: Bloc): boolean {
-    return bloc.type.id !== 1 && bloc.type.id !== 2;
+  isInlineBlock(block: Block): boolean {
+    return block.type.id !== 1 && block.type.id !== 2;
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Bloc } from 'src/app/shared/models/bloc.model';
+import { Block } from 'src/app/shared/models/block.model';
 
 @Component({
   selector: 'app-layer',
@@ -8,14 +8,14 @@ import { Bloc } from 'src/app/shared/models/bloc.model';
 })
 export class LayerComponent implements OnInit {
 
-  @Input() bloc: Bloc;
+  @Input() block: Block;
 
   get hasChildren(): boolean {
-    return this.bloc.children.length > 0;
+    return this.block.children.length > 0;
   }
 
   Toggle(): void {
-    this.bloc.open = !this.bloc.open;
+    this.block.open = !this.block.open;
   }
 
   constructor() { }
