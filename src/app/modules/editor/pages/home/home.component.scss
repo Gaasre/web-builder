@@ -1,0 +1,17 @@
+nz-layout {
+    height: 100vh;
+    display: flex;
+    .left-section {
+        box-shadow: 1px 0px 4px 0px rgba(0,0,0,0.16);
+    }
+    .right-section {
+        box-shadow: -1px 0px 4px 0px rgba(0,0,0,0.16);
+    }
+
+    nz-content {
+        padding: 20px;
+        .editor-content {
+            background: #ffffff;
+        }
+    }
+}

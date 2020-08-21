@@ -1,0 +1,23 @@
+<div>
+  <div class="content" [ngStyle]="{display: isInlineBlock(bloc) ? 'inline-block' : 'block'}">
+    <div *ngIf="bloc.type.id === 2">
+      <div class="bloc-content" (click)="toggleBloc(bloc)" *ngIf="bloc.open === false">{{bloc.content}}</div>
+      <nz-input-group *ngIf="bloc.open === true" [nzSuffix]="confirmTemplate">
+        <input type="text" nz-input [(ngModel)]="bloc.content" />
+      </nz-input-group>
+    </div>
+    <span *ngIf="bloc.type.id === 4">
+      <button nz-button nzType="default" (click)="toggleBloc(bloc)" *ngIf="bloc.open === false">{{bloc.name}}</button>
+      <nz-input-group *ngIf="bloc.open === true" [nzSuffix]="confirmTemplate">
+        <input type="text" nz-input [(ngModel)]="bloc.name" />
+      </nz-input-group>
+    </span>
+    <div>
+      <app-layers-view [bloc]="bloc" *ngFor="let bloc of bloc.children"></app-layers-view>
+    </div>
+  </div>
+</div>
+
+<ng-template #confirmTemplate>
+  <i nz-icon nzType="check" (click)="toggleBloc(bloc)"></i>
+</ng-template>

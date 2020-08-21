@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'editor',
+    loadChildren: () => import('./modules/editor/editor.module').then(m => m.EditorModule)
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

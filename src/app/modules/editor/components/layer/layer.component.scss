@@ -1,0 +1,23 @@
+@import '../../../../styles/colors.scss';
+
+div {
+    padding-left: 10px;
+}
+
+.content {
+    padding: 5px;
+    font-size: 16px;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    i {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+}
+
+.content:hover {
+    color: $primary-400;
+    span {
+        transform: translateX(2px);
+    }
+}

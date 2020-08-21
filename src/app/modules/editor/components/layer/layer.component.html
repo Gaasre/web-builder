@@ -1,0 +1,9 @@
+<div>
+    <div class="content">
+        <i *ngIf="hasChildren" (click)="Toggle()" nz-icon [nzType]="bloc.open ? 'down' : 'right'" nzTheme="outline"></i>
+        <span>{{bloc.name}}</span>
+    </div>
+    <div *ngIf="bloc.open">
+        <app-layer [bloc]="bloc" *ngFor="let bloc of bloc.children"></app-layer>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+@import '../../../../styles/colors.scss';
+
+.content {
+    padding: 2px;
+    border: 1px solid #ffffff00;
+    cursor: pointer;
+    .bloc-content {
+        height: 32px;
+        padding: 4px 11px;
+    }
+    
+}
+
+.content:hover {
+    border-color: $primary-400;
+}

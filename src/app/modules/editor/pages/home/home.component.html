@@ -1,0 +1,13 @@
+<nz-layout>
+  <nz-sider [nzWidth]="250" class="left-section" [nzTheme]="'light'">
+    <app-layers></app-layers>
+  </nz-sider>
+  <nz-layout>
+    <nz-content>
+      <div class="editor-content">
+        <app-layers-view [bloc]="bloc" *ngFor="let bloc of Blocs"></app-layers-view>
+      </div>
+    </nz-content>
+    <nz-sider [nzWidth]="250" class="right-section" [nzTheme]="'light'">Sider</nz-sider>
+  </nz-layout>
+</nz-layout>
