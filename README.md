@@ -14,23 +14,23 @@ First install the dependencies `npm install` then launch the server `ng serve`
 
 ### Models
 #### Block
-* `id`: number;
-* `name`: string;
-* `type`: Type;
-* `style`: Property[];
-* `hoverStyle`: Property[];
-* `content`: string;
-* `open`: boolean;
-* `children`: Block[];
+* `id`: number
+* `name`: string
+* `type`: Type
+* `style`: Property[]
+* `hoverStyle`: Property[]
+* `content`: string
+* `open`: boolean
+* `children`: Block[]
 
 #### Property
-* `id`: number;
-* `name`: string;
-* `value`: string;
-* `options`: string[];
-* `type`: string;
+* `id`: number
+* `name`: string
+* `value`: string
+* `options`: string[]
+* `type`: string
 
 #### Type
-* `id`: number;
-* `name`: string;
-* `defaultStyle`: Property[];
+* `id`: number
+* `name`: string
+* `defaultStyle`: Property[]
