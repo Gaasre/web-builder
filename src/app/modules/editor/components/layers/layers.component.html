@@ -7,4 +7,4 @@
     <i nz-icon nzType="search"></i>
   </ng-template>
 </div>
-<app-layer [block]="block" *ngFor="let block of Blocks"></app-layer>
+<app-layer (selectionChanged)="onSelect($event)" [block]="block" *ngFor="let block of Blocks"></app-layer>

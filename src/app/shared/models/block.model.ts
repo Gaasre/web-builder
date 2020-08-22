@@ -10,6 +10,7 @@ export interface Block {
     hoverStyle: Property[];
     content: string;
     open: boolean;
+    selected: boolean;
     children: Block[];
 
     // Operations

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/shared/services/storage.service';
+import { Block } from 'src/app/shared/models/block.model';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 export class HomeComponent implements OnInit {
 
   isMobile = false;
+  selectedBlock = null;
 
   constructor(private data: StorageService) { }
 
@@ -17,6 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.selectedBlock = this.data.selectedBlock();
   }
 
   setMobile(): void {
@@ -25,6 +28,11 @@ export class HomeComponent implements OnInit {
 
   setDesktop(): void {
     this.isMobile = false;
+  }
+
+  onSelectionChanged(block: Block) {
+    console.log(this.selectedBlock);
+    this.selectedBlock = block;
   }
 
 }

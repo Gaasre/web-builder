@@ -1,6 +1,6 @@
 <nz-layout>
   <nz-sider [nzWidth]="250" class="left-section" [nzTheme]="'light'">
-    <app-layers></app-layers>
+    <app-layers (selectionChanged)="onSelectionChanged($event)"></app-layers>
   </nz-sider>
   <nz-layout>
     <nz-layout>
@@ -15,7 +15,7 @@
       </nz-content>
     </nz-layout>
     <nz-sider [nzWidth]="300" class="right-section" [nzTheme]="'light'">
-      <app-block-toolbox></app-block-toolbox>
+      <app-block-toolbox [selectedBlock]="selectedBlock"></app-block-toolbox>
     </nz-sider>
   </nz-layout>
 </nz-layout>

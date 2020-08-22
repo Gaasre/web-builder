@@ -1,10 +1,10 @@
 export interface Property {
     // Attributes
-    id: number;
+    id?: number;
     name: string;
-    value: string;
-    options: string[];
-    type: string;
+    value: any;
+    options?: string[];
+    type?: string;
 
     // Operations
 

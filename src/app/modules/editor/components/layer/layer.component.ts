@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Block } from 'src/app/shared/models/block.model';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-layer',
@@ -9,6 +10,7 @@ import { Block } from 'src/app/shared/models/block.model';
 export class LayerComponent implements OnInit {
 
   @Input() block: Block;
+  @Output() selectionChanged = new EventEmitter<Block>();
 
   get hasChildren(): boolean {
     return this.block.children.length > 0;
@@ -18,9 +20,18 @@ export class LayerComponent implements OnInit {
     this.block.open = !this.block.open;
   }
 
-  constructor() { }
+  constructor(private data: StorageService) { }
 
   ngOnInit(): void {
   }
 
+  selectBlock(block: Block): void {
+    this.data.unselectBlocks();
+    this.data.selectBlock(block);
+    this.selectionChanged.emit(block);
+  }
+
+  onSelect(block: Block) {
+    this.selectionChanged.emit(block);
+  }
 }

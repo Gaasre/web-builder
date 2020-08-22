@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Block } from 'src/app/shared/models/block.model';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-block-toolbox',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockToolboxComponent implements OnInit {
 
-  constructor() { }
+  @Input() selectedBlock: Block;
+
+  constructor(private storage: StorageService) { }
 
   ngOnInit(): void {
+  }
+
+  test() {
+    console.log(this.selectedBlock);
+  }
+
+  getStyle(name: string) {
+    const style = this.selectedBlock.style.find(x => x.name === name);
+    return style ? style.value : null;
   }
 
 }

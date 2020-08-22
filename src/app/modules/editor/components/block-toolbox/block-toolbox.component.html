@@ -6,7 +6,7 @@
       <div class="label">Background</div>
       <div>
         <nz-input-group [nzPrefix]="colorPreview">
-          <input type="text" nz-input placeholder="#FFFFFF" />
+          <input type="text" [ngModel]="getStyle('background')" nz-input placeholder="#FFFFFF" />
         </nz-input-group>
         <ng-template #colorPreview>
           <div class="color-preview"></div>
@@ -28,7 +28,7 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input placeholder="0" />
+          <input nz-input [ngModel]="getStyle('padding-top')" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Top</div>
@@ -36,7 +36,7 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input placeholder="0" />
+          <input nz-input [ngModel]="getStyle('padding-right')" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Right</div>
@@ -44,7 +44,7 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input placeholder="0" />
+          <input nz-input [ngModel]="getStyle('padding-bottom')" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Bottom</div>
@@ -52,7 +52,7 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input placeholder="0" />
+          <input nz-input [ngModel]="getStyle('padding-left')" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Left</div>
@@ -64,7 +64,7 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input placeholder="0" />
+          <input nz-input [ngModel]="getStyle('margin-top')" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Top</div>
@@ -72,7 +72,7 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input placeholder="0" />
+          <input nz-input [ngModel]="getStyle('margin-right')" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Right</div>
@@ -80,7 +80,7 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input placeholder="0" />
+          <input nz-input [ngModel]="getStyle('margin-bottom')" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Bottom</div>
@@ -88,7 +88,7 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input placeholder="0" />
+          <input nz-input [ngModel]="getStyle('margin-left')" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Left</div>
@@ -98,7 +98,7 @@
   <div class="label">Alignment</div>
   <div nz-row nzGutter="6">
     <div nz-col nzSpan="24">
-      <nz-radio-group>
+      <nz-radio-group [ngModel]="getStyle('text-align')">
         <label nz-radio-button nzValue="left"><i nz-icon nzType="align-left" nzTheme="outline"></i></label>
         <label nz-radio-button nzValue="center"><i nz-icon nzType="align-center" nzTheme="outline"></i></label>
         <label nz-radio-button nzValue="right"><i nz-icon nzType="align-right" nzTheme="outline"></i></label>
