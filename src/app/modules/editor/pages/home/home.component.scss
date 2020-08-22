@@ -1,3 +1,5 @@
+@import '../../../../styles/colors.scss';
+
 nz-layout {
     height: 100vh;
     display: flex;
@@ -8,10 +10,33 @@ nz-layout {
         box-shadow: -1px 0px 4px 0px rgba(0,0,0,0.16);
     }
 
+    nz-header {
+        height: 40px;
+        background: #fff;
+        line-height: 40px;
+        text-align: center;
+        i {
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 200ms ease-in;
+            &:hover, &.selected {
+                color: $primary;
+            }
+            
+        }
+    }
+
     nz-content {
         padding: 20px;
         .editor-content {
+            margin: auto;
             background: #ffffff;
+            transition: width 400ms;
+            width: 100%;
+            &.mobile {
+                max-height: 736px;
+                width: 414px;
+            }
         }
     }
 }

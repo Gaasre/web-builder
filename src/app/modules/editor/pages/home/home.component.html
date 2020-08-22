@@ -3,11 +3,17 @@
     <app-layers></app-layers>
   </nz-sider>
   <nz-layout>
-    <nz-content>
-      <div class="editor-content">
-        <app-layers-view [block]="block" *ngFor="let block of Blocks"></app-layers-view>
-      </div>
-    </nz-content>
+    <nz-layout>
+      <nz-header>
+        <i nz-icon [ngClass]="{selected: !isMobile}" nzType="laptop" (click)="setDesktop()" nzTheme="outline"></i>
+        <i nz-icon [ngClass]="{selected: isMobile}" nzType="mobile" (click)="setMobile()" nzTheme="outline"></i>
+      </nz-header>
+      <nz-content>
+        <div class="editor-content" [ngClass]="{mobile: isMobile}">
+          <app-layers-view [block]="block" *ngFor="let block of Blocks"></app-layers-view>
+        </div>
+      </nz-content>
+    </nz-layout>
     <nz-sider [nzWidth]="300" class="right-section" [nzTheme]="'light'">
       <app-block-toolbox></app-block-toolbox>
     </nz-sider>

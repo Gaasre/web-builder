@@ -1,9 +1,13 @@
 <div>
-    <div class="content">
-        <i *ngIf="hasChildren" (click)="Toggle()" nz-icon [nzType]="block.open ? 'down' : 'right'" nzTheme="outline"></i>
-        <span>{{block.name}}</span>
+    <div nz-row class="content">
+        <i nz-col nzSpan="4" *ngIf="hasChildren" (click)="Toggle()" nz-icon [nzType]="block.open ? 'down' : 'right'" nzTheme="outline"></i>
+        <span nz-col nzSpan="16">{{block.name}}</span>
+        <i *ngIf="block.type.id === 1" nz-col nzSpan="4" nz-icon nzType="block" nzTheme="outline"></i>
+        <i *ngIf="block.type.id === 2" nz-col nzSpan="4" nz-icon nzType="field-string" nzTheme="outline"></i>
+        <i *ngIf="block.type.id === 3" nz-col nzSpan="4" nz-icon nzType="picture" nzTheme="outline"></i>
+        <i *ngIf="block.type.id === 4" nz-col nzSpan="4" nz-icon nzType="form" nzTheme="outline"></i>
     </div>
-    <div *ngIf="block.open">
+    <div class="children" *ngIf="block.open">
         <app-layer [block]="block" *ngFor="let block of block.children"></app-layer>
     </div>
 </div>

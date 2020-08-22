@@ -8,6 +8,8 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 })
 export class HomeComponent implements OnInit {
 
+  isMobile = false;
+
   constructor(private data: StorageService) { }
 
   get Blocks() {
@@ -15,6 +17,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  setMobile(): void {
+    this.isMobile = true;
+  }
+
+  setDesktop(): void {
+    this.isMobile = false;
   }
 
 }

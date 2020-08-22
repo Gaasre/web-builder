@@ -11,13 +11,16 @@ div {
     cursor: pointer;
     i {
         font-size: 14px;
-        margin-right: 10px;
+        margin-top: 5px;
+    }
+    span {
+        padding-left: 4px;
+    }
+    &:hover {
+        color: $primary-400;
     }
 }
 
-.content:hover {
-    color: $primary-400;
-    span {
-        transform: translateX(2px);
-    }
+.children {
+    margin-left: 10px;
 }
