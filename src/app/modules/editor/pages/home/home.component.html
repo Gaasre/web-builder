@@ -8,6 +8,8 @@
         <app-layers-view [block]="block" *ngFor="let block of Blocks"></app-layers-view>
       </div>
     </nz-content>
-    <nz-sider [nzWidth]="250" class="right-section" [nzTheme]="'light'">Sider</nz-sider>
+    <nz-sider [nzWidth]="300" class="right-section" [nzTheme]="'light'">
+      <app-block-toolbox></app-block-toolbox>
+    </nz-sider>
   </nz-layout>
 </nz-layout>

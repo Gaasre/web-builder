@@ -12,13 +12,17 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { BlockToolboxComponent } from './components/block-toolbox/block-toolbox.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, LayersComponent, LayerComponent, LayersViewComponent],
+  declarations: [HomeComponent, LayersComponent, LayerComponent, LayersViewComponent, BlockToolboxComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -28,6 +32,9 @@ import { FormsModule } from '@angular/forms';
     NzIconModule,
     NzInputModule,
     NzButtonModule,
+    NzRadioModule,
+    NzSelectModule,
+    NzCheckboxModule,
     SharedModule
   ]
 })

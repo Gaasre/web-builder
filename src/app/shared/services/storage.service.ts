@@ -62,6 +62,26 @@ export class StorageService {
           content: 'Testing',
           open: false,
           children: []
+        },
+        {
+          id: 4,
+          name: 'Block 4',
+          type: this.Types[1],
+          style: [],
+          hoverStyle: [],
+          content: 'Testing',
+          open: false,
+          children: []
+        },
+        {
+          id: 5,
+          name: 'Block 4',
+          type: this.Types[1],
+          style: [],
+          hoverStyle: [],
+          content: 'Testing',
+          open: false,
+          children: []
         }
       ]
     }

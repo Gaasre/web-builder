@@ -1,0 +1,215 @@
+<div class="container">
+  <h3>appearance</h3>
+  <!--BACKGROUND AND OPACITY-->
+  <div nz-row nzGutter="12">
+    <div nz-col nzSpan="12">
+      <div class="label">Background</div>
+      <div>
+        <nz-input-group [nzPrefix]="colorPreview">
+          <input type="text" nz-input placeholder="#FFFFFF" />
+        </nz-input-group>
+        <ng-template #colorPreview>
+          <div class="color-preview"></div>
+        </ng-template>
+      </div>
+    </div>
+    <div nz-col nzSpan="12">
+      <div class="label">Opacity</div>
+      <div>
+        <nz-input-group nzSuffix="%">
+          <input nz-input placeholder="100" />
+        </nz-input-group>
+      </div>
+    </div>
+  </div>
+  <!--PADDING-->
+  <div class="label">Padding</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Top</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Right</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Bottom</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Left</div>
+    </div>
+  </div>
+  <!--MARGIN-->
+  <div class="label">Margin</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Top</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Right</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Bottom</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Left</div>
+    </div>
+  </div>
+  <!--ALIGNMENT-->
+  <div class="label">Alignment</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="24">
+      <nz-radio-group>
+        <label nz-radio-button nzValue="left"><i nz-icon nzType="align-left" nzTheme="outline"></i></label>
+        <label nz-radio-button nzValue="center"><i nz-icon nzType="align-center" nzTheme="outline"></i></label>
+        <label nz-radio-button nzValue="right"><i nz-icon nzType="align-right" nzTheme="outline"></i></label>
+      </nz-radio-group>
+    </div>
+  </div>
+  <!--BORDER-->
+  <div class="label">Border</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="6">
+      <nz-input-group nzSuffix="px">
+        <input nz-input placeholder="1" />
+      </nz-input-group>
+    </div>
+    <div nz-col nzSpan="10">
+      <nz-input-group [nzPrefix]="borderPreview">
+        <input type="text" nz-input placeholder="#FFFFFF" />
+      </nz-input-group>
+      <ng-template #borderPreview>
+        <div class="color-preview"></div>
+      </ng-template>
+    </div>
+    <div nz-col nzSpan="8">
+      <nz-select ngModel="lucy">
+        <nz-option nzValue="solid" nzLabel="Solid"></nz-option>
+        <nz-option nzValue="dotted" nzLabel="Dotted"></nz-option>
+        <nz-option nzValue="dashed" nzLabel="Dashed"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+  <!--RADIUS-->
+  <div class="label">Radius</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Top left</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Top right</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">B. right</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">B. left</div>
+    </div>
+  </div>
+  <!--SHADOW-->
+  <div class="label">Shadow</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">X</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Y</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Blur</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Size</div>
+    </div>
+    <div nz-col nzSpan="12">
+      <nz-input-group [nzPrefix]="shadowPreview">
+        <input type="text" nz-input placeholder="#FFFFFF" />
+      </nz-input-group>
+      <ng-template #shadowPreview>
+        <div class="color-preview"></div>
+      </ng-template>
+    </div>
+    <div nz-col nzSpan="12">
+      <label nz-checkbox [ngModel]="false">Inside</label>
+    </div>
+  </div>
+</div>

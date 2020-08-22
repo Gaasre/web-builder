@@ -1,0 +1,42 @@
+@import '../../../../styles/colors.scss';
+
+.container {
+    padding: 15px;
+    h3 {
+        color: $primary-200;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    .label {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 4px;
+        &.light {
+            color: $primary-300;
+            text-align: center;
+        }
+    }
+    .color-preview {
+        height: 15px;
+        width: 15px;
+        border-radius: 15px;
+        background-color: blue;
+        margin-top: 3px;
+        box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    }
+    input {
+        font-size: 12px;
+    }
+    div[nz-row] {
+        margin-bottom: 10px;
+    }
+    nz-select {
+        width: 100%;
+    }
+    label[nz-checkbox] {
+        margin-top: 3px;
+        margin-left: 10px;
+    }
+}
