@@ -1,11 +1,19 @@
 <div>
-    <div (click)="selectBlock(block)" nz-row class="content">
+    <div (contextmenu)="onRightClick(block)" (click)="selectBlock(block)" nz-row class="content">
         <i nz-col nzSpan="4" *ngIf="hasChildren" (click)="Toggle()" nz-icon [nzType]="block.open ? 'down' : 'right'" nzTheme="outline"></i>
         <span nz-col nzSpan="16">{{block.name}}</span>
         <i *ngIf="block.type.id === 1" nz-col nzSpan="4" nz-icon nzType="block" nzTheme="outline"></i>
         <i *ngIf="block.type.id === 2" nz-col nzSpan="4" nz-icon nzType="field-string" nzTheme="outline"></i>
         <i *ngIf="block.type.id === 3" nz-col nzSpan="4" nz-icon nzType="picture" nzTheme="outline"></i>
         <i *ngIf="block.type.id === 4" nz-col nzSpan="4" nz-icon nzType="form" nzTheme="outline"></i>
+        <div #contextmenu class="context-menu" [ngStyle]="{display: contextMenuOpen ? 'block' : 'none'}">
+            <ul>
+                <li (click)="newBlock()"><i nz-icon nzType="block" nzTheme="outline"></i> New Block</li>
+                <li (click)="newText()"><i nz-icon nzType="field-string" nzTheme="outline"></i> New Text</li>
+                <li (click)="newPicture()"><i nz-icon nzType="picture" nzTheme="outline"></i> New Picture</li>
+                <li (click)="newButton()"><i nz-icon nzType="form" nzTheme="outline"></i> New Button</li>
+            </ul>
+        </div>
     </div>
     <div class="children" *ngIf="block.open">
         <app-layer (selectionChanged)="onSelect($event)" [block]="block" *ngFor="let block of block.children"></app-layer>

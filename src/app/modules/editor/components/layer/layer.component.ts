@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener, ViewChild } from '@angular/core';
 import { Block } from 'src/app/shared/models/block.model';
 import { StorageService } from 'src/app/shared/services/storage.service';
 
@@ -11,6 +11,15 @@ export class LayerComponent implements OnInit {
 
   @Input() block: Block;
   @Output() selectionChanged = new EventEmitter<Block>();
+  @ViewChild('contextmenu') elementRef;
+  contextMenuOpen = false;
+
+  @HostListener('document:click', ['$event.target']) onMouseEnter(targetElement) {
+    const clickedInside = this.elementRef.nativeElement.contains(targetElement);
+    if (!clickedInside) {
+      this.closeContextMenu();
+    }
+  }
 
   get hasChildren(): boolean {
     return this.block.children.length > 0;
@@ -33,5 +42,36 @@ export class LayerComponent implements OnInit {
 
   onSelect(block: Block) {
     this.selectionChanged.emit(block);
+  }
+
+  onRightClick(target: Block) {
+    if (target.type.id === 1) {
+      this.contextMenuOpen = true;
+    }
+    return false;
+  }
+
+  newBlock() {
+    this.data.newBlock(1, this.block);
+    this.closeContextMenu();
+  }
+
+  newText() {
+    this.data.newBlock(2, this.block);
+    this.closeContextMenu();
+  }
+
+  newPicture() {
+    this.data.newBlock(3, this.block);
+    this.closeContextMenu();
+  }
+
+  newButton() {
+    this.data.newBlock(4, this.block);
+    this.closeContextMenu();
+  }
+
+  closeContextMenu() {
+    this.contextMenuOpen = false;
   }
 }

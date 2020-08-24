@@ -1,13 +1,15 @@
 <div>
   <div class="content" [ngStyle]="toCssStyle()">
     <div *ngIf="block.type.id === 2">
-      <div class="block-content" (click)="toggleBlock(block)" *ngIf="block.open === false">{{block.content}}</div>
+      <div class="block-content" (click)="toggleBlock(block)" *ngIf="block.open === false">{{block.content}}
+      </div>
       <nz-input-group *ngIf="block.open === true" [nzSuffix]="confirmTemplate">
         <textarea rows="4" nz-input [(ngModel)]="block.content"></textarea>
       </nz-input-group>
     </div>
     <span *ngIf="block.type.id === 4">
-      <button nz-button nzType="default" (click)="toggleBlock(block)" *ngIf="block.open === false">{{block.name}}</button>
+      <button nz-button nzType="default" (click)="toggleBlock(block)"
+        *ngIf="block.open === false">{{block.name}}</button>
       <nz-input-group *ngIf="block.open === true" [nzSuffix]="confirmTemplate">
         <input type="text" nz-input [(ngModel)]="block.name" />
       </nz-input-group>

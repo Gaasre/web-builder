@@ -1,26 +1,59 @@
 @import '../../../../styles/colors.scss';
 
 div {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .content {
-    padding: 5px;
+  padding: 5px;
+  font-size: 14px;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+
+  i {
     font-size: 14px;
-    transition: all 300ms ease-in-out;
-    cursor: pointer;
-    i {
-        font-size: 14px;
-        margin-top: 5px;
+    margin-top: 5px;
+  }
+
+  span {
+    padding-left: 4px;
+  }
+
+  &:hover {
+    color: $primary-400;
+  }
+
+  position: relative;
+
+  .context-menu {
+    width: 150px;
+    border: 1px solid $primary-100;
+    border-radius: 4px;
+    padding: 5px;
+    top: 30px;
+    right: 50px;
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        color: rgba(0, 0, 0, 0.65);
+        padding: 2px 5px;
+        transition: all 300ms ease-in-out;
+
+        &:hover {
+          color: $primary-400 !important;
+        }
+      }
     }
-    span {
-        padding-left: 4px;
-    }
-    &:hover {
-        color: $primary-400;
-    }
+  }
 }
 
 .children {
-    margin-left: 10px;
+  margin-left: 10px;
 }

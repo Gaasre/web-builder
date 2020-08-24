@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StorageService } from './services/storage.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HighlightDirective
+  ],
   imports: [
     CommonModule
   ],

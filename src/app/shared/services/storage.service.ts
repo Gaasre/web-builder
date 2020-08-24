@@ -9,6 +9,7 @@ import { findDeep, mapValuesDeep } from 'deepdash-es/standalone';
 export class StorageService {
 
   constructor() { }
+  nextId = 6;
 
   Types: Type[] = [
     {
@@ -25,9 +26,9 @@ export class StorageService {
         { name: 'margin-bottom', value: 0 },
         { name: 'margin-left', value: 0 },
         { name: 'text-align', value: 'left' },
-        { name: 'border-width', value: 0 },
+        { name: 'border-width', value: 1 },
         { name: 'border-style', value: 'solid' },
-        { name: 'border-color', value: '#fff' },
+        { name: 'border-color', value: '#ffffff00' },
         { name: 'border-top-left-radius', value: 0 },
         { name: 'border-top-right-radius', value: 0 },
         { name: 'border-bottom-left-radius', value: 0 },
@@ -73,9 +74,9 @@ export class StorageService {
         { name: 'margin-bottom', value: 0 },
         { name: 'margin-left', value: 0 },
         { name: 'text-align', value: 'left' },
-        { name: 'border-width', value: 0 },
+        { name: 'border-width', value: 1 },
         { name: 'border-style', value: 'solid' },
-        { name: 'border-color', value: '#fff' },
+        { name: 'border-color', value: '#ffffff00' },
         { name: 'border-top-left-radius', value: 0 },
         { name: 'border-top-right-radius', value: 0 },
         { name: 'border-bottom-left-radius', value: 0 },
@@ -173,5 +174,22 @@ export class StorageService {
       }
       return value;
     }, { childrenPath: ['children'] });
+  }
+
+  newBlock(typeID: number, parent: Block): void {
+    parent.children.push({
+      id: this.nextId,
+      name: 'New ' + this.Types[typeID - 1].name + ' ' + this.nextId,
+      type: this.Types[typeID - 1],
+      style: this.Types[typeID - 1].defaultStyle,
+      hoverStyle: [],
+      content: '',
+      open: false,
+      selected: false,
+      children: []
+    });
+    this.updateBlock(parent);
+    console.log(this.Blocks);
+    this.nextId++;
   }
 }

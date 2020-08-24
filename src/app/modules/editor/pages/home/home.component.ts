@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   onSelectionChanged(block: Block) {
-    console.log(this.selectedBlock);
     this.selectedBlock = block;
   }
 

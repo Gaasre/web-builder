@@ -15,6 +15,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
@@ -35,6 +36,7 @@ import { BlockToolboxComponent } from './components/block-toolbox/block-toolbox.
     NzRadioModule,
     NzSelectModule,
     NzCheckboxModule,
+    NzPopoverModule,
     SharedModule
   ]
 })
