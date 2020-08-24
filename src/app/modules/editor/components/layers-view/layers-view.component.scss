@@ -8,9 +8,7 @@
         height: 32px;
         padding: 4px 11px;
     }
-    
-}
-
-.content:hover {
-    border-color: $primary-400;
+    &:hover {
+        border-color: $primary-400 !important;
+    }
 }

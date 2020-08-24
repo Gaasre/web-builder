@@ -154,7 +154,7 @@ export class StorageService {
         return block;
       }
       return value;
-    });
+    }, { childrenPath: ['children'] });
   }
 
   unselectBlocks() {
@@ -163,7 +163,7 @@ export class StorageService {
         value.selected = false;
       }
       return value;
-    });
+    }, { childrenPath: ['children'] });
   }
 
   selectBlock(block: Block) {
@@ -172,6 +172,6 @@ export class StorageService {
         value.selected = true;
       }
       return value;
-    });
+    }, { childrenPath: ['children'] });
   }
 }

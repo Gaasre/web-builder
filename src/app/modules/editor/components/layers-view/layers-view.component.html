@@ -1,5 +1,5 @@
 <div>
-  <div class="content" [ngStyle]="{display: isInlineBlock(block) ? 'inline-block' : 'block'}">
+  <div class="content" [ngStyle]="toCssStyle()">
     <div *ngIf="block.type.id === 2">
       <div class="block-content" (click)="toggleBlock(block)" *ngIf="block.open === false">{{block.content}}</div>
       <nz-input-group *ngIf="block.open === true" [nzSuffix]="confirmTemplate">

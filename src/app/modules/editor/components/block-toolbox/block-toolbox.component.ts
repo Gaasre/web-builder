@@ -16,13 +16,19 @@ export class BlockToolboxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  test() {
-    console.log(this.selectedBlock);
-  }
-
   getStyle(name: string) {
     const style = this.selectedBlock.style.find(x => x.name === name);
     return style ? style.value : null;
+  }
+
+  updateStyle(name: string, value: string): void {
+    console.log(name, value);
+    const found = this.selectedBlock.style.find(x => x.name === name);
+    console.log(found);
+    if (found) {
+      found.value = value;
+    }
+    this.storage.updateBlock(this.selectedBlock);
   }
 
 }
