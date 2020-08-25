@@ -1,5 +1,5 @@
 <div>
-    <div (contextmenu)="onRightClick(block)" (click)="selectBlock(block)" nz-row class="content">
+    <div [ngClass]="{selected: block.selected}" (contextmenu)="onRightClick(block)" (click)="selectBlock(block)" nz-row class="content">
         <i nz-col nzSpan="4" *ngIf="hasChildren" (click)="Toggle()" nz-icon [nzType]="block.open ? 'down' : 'right'" nzTheme="outline"></i>
         <span nz-col nzSpan="16">{{block.name}}</span>
         <i *ngIf="block.type.id === 1" nz-col nzSpan="4" nz-icon nzType="block" nzTheme="outline"></i>
@@ -15,7 +15,9 @@
             </ul>
         </div>
     </div>
-    <div class="children" *ngIf="block.open">
-        <app-layer (selectionChanged)="onSelect($event)" [block]="block" *ngFor="let block of block.children"></app-layer>
+    <div cdkDropList (cdkDropListDropped)="drop($event)" class="children" *ngIf="block.open">
+        <div class="child" *ngFor="let block of block.children" cdkDrag>
+            <app-layer (selectionChanged)="onSelect($event)" [block]="block"></app-layer>
+        </div>
     </div>
 </div>

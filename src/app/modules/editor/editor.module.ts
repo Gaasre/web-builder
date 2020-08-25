@@ -17,6 +17,8 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { BlockToolboxComponent } from './components/block-toolbox/block-toolbox.component';
@@ -37,6 +39,7 @@ import { BlockToolboxComponent } from './components/block-toolbox/block-toolbox.
     NzSelectModule,
     NzCheckboxModule,
     NzPopoverModule,
+    DragDropModule,
     SharedModule
   ]
 })

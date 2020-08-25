@@ -1,15 +1,15 @@
 @import '../../../../styles/colors.scss';
 
-div {
-  padding-left: 10px;
-}
-
 .content {
   padding: 5px;
   font-size: 14px;
-  transition: all 300ms ease-in-out;
+  transition: all 300ms;
   cursor: pointer;
 
+  &.selected {
+    background: $primary-100;
+    border-right: 5px solid $primary-600;
+  }
   i {
     font-size: 14px;
     margin-top: 5px;
@@ -44,7 +44,7 @@ div {
       li {
         color: rgba(0, 0, 0, 0.65);
         padding: 2px 5px;
-        transition: all 300ms ease-in-out;
+        transition: all 300ms;
 
         &:hover {
           color: $primary-400 !important;
@@ -55,5 +55,28 @@ div {
 }
 
 .children {
-  margin-left: 10px;
+  margin-left: 20px;
+  .child {
+    background: #fff;
+    z-index: 1;
+  }
+  &.cdk-drop-list-dragging .child:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }

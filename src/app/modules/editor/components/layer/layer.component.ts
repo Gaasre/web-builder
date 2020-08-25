@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, ViewChild } from '@angular/core';
 import { Block } from 'src/app/shared/models/block.model';
 import { StorageService } from 'src/app/shared/services/storage.service';
+import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-layer',
@@ -73,5 +74,9 @@ export class LayerComponent implements OnInit {
 
   closeContextMenu() {
     this.contextMenuOpen = false;
+  }
+
+  drop(event: CdkDragDrop<Block[]>) {
+    moveItemInArray(this.block.children, event.previousIndex, event.currentIndex);
   }
 }
