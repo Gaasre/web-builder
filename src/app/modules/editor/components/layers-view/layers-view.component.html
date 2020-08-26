@@ -1,25 +1,13 @@
-<div>
-  <div class="content" [ngStyle]="toCssStyle()">
-    <div *ngIf="block.type.id === 2">
-      <div class="block-content" (click)="toggleBlock(block)" *ngIf="block.open === false">{{block.content}}
-      </div>
-      <nz-input-group *ngIf="block.open === true" [nzSuffix]="confirmTemplate">
-        <textarea rows="4" nz-input [(ngModel)]="block.content"></textarea>
-      </nz-input-group>
-    </div>
-    <span *ngIf="block.type.id === 4">
-      <button nz-button nzType="default" (click)="toggleBlock(block)"
-        *ngIf="block.open === false">{{block.name}}</button>
-      <nz-input-group *ngIf="block.open === true" [nzSuffix]="confirmTemplate">
-        <input type="text" nz-input [(ngModel)]="block.name" />
-      </nz-input-group>
-    </span>
-    <div>
-      <app-layers-view [block]="block" *ngFor="let block of block.children"></app-layers-view>
-    </div>
+<div class="content">
+  <p *ngIf="block.type.id === 2" [ngStyle]="toCssStyle()" (click)="selectBlock(block)">{{block.content}}
+  </p>
+  <button *ngIf="block.type.id === 4" [ngStyle]="toCssStyle()" nz-button nzType="default"
+    (click)="selectBlock(block)">{{block.content}}</button>
+
+  <div (click)="selectBlock(block)" *ngIf="block.type.id === 3" [ngStyle]="toCssStyle()">
+    <img [src]="block.content">
+  </div>
+  <div (click)="selectBlock(block)" *ngIf="block.type.id === 1" [ngStyle]="toCssStyle()">
+    <app-layers-view [block]="block" *ngFor="let block of block.children"></app-layers-view>
   </div>
 </div>
-
-<ng-template #confirmTemplate>
-  <i nz-icon nzType="check" (click)="toggleBlock(block)"></i>
-</ng-template>

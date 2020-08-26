@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Block } from 'src/app/shared/models/block.model';
 import { isBoolean } from 'util';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-layers-view',
@@ -10,18 +11,21 @@ import { isBoolean } from 'util';
 export class LayersViewComponent implements OnInit {
 
   @Input() block: Block;
+  @Output() selectionChanged = new EventEmitter<Block>();
 
   get hasChildren(): boolean {
     return this.block.children.length > 0;
   }
 
-  constructor() { }
+  constructor(private storage: StorageService) { }
 
   ngOnInit(): void {
   }
 
-  toggleBlock(block: Block): void {
-    block.open = !block.open;
+  selectBlock(block: Block) {
+    this.storage.unselectBlocks();
+    this.storage.selectBlock(block);
+    this.selectionChanged.emit(block);
   }
 
   isInlineBlock(block: Block): boolean {
@@ -36,8 +40,11 @@ export class LayersViewComponent implements OnInit {
         if (b.name === 'shadow-x' || b.name === 'shadow-y' || b.name === 'shadow-blur'
           || b.name === 'shadow-size' || b.name === 'shadow-color' || b.name === 'shadow-inset') {
           shadow[b.name] = isNaN(b.value) || typeof b.value === 'boolean' ? b.value : b.value + 'px';
+        } else if (b.name === 'flexbox') {
+          // tslint:disable-next-line:no-string-literal
+          css['display'] = b.value ? 'flex' : 'block';
         } else {
-          css[b.name] = isNaN(b.value) ? b.value : b.value + 'px';
+          css[b.name] = isNaN(b.value) || b.name === 'font-weight' ? b.value : b.value + 'px';
         }
       });
       // tslint:disable-next-line:max-line-length

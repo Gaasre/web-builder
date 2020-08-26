@@ -16,16 +16,22 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { BlockToolboxComponent } from './components/block-toolbox/block-toolbox.component';
+import { ImageToolboxComponent } from './components/image-toolbox/image-toolbox.component';
+import { TextToolboxComponent } from './components/text-toolbox/text-toolbox.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, LayersComponent, LayerComponent, LayersViewComponent, BlockToolboxComponent],
+  declarations: [HomeComponent, LayersComponent, LayerComponent,
+    LayersViewComponent, BlockToolboxComponent, ImageToolboxComponent,
+     TextToolboxComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -40,6 +46,8 @@ import { BlockToolboxComponent } from './components/block-toolbox/block-toolbox.
     NzCheckboxModule,
     NzPopoverModule,
     DragDropModule,
+    NzInputNumberModule,
+    NzDividerModule,
     SharedModule
   ]
 })

@@ -6,7 +6,8 @@
       <div class="label">Background</div>
       <div>
         <nz-input-group [nzPrefix]="colorPreview">
-          <input type="text" [ngModel]="getStyle('background')" (ngModelChange)="updateStyle('background', $event)" nz-input placeholder="#FFFFFF" />
+          <input type="text" [ngModel]="getStyle('background')" (ngModelChange)="updateStyle('background', $event)"
+            nz-input placeholder="#FFFFFF" />
         </nz-input-group>
         <ng-template #colorPreview>
           <div class="color-preview"></div>
@@ -28,7 +29,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('padding-top')" (ngModelChange)="updateStyle('padding-top', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('padding-top')" (ngModelChange)="updateStyle('padding-top', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Top</div>
@@ -36,7 +38,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('padding-right')" (ngModelChange)="updateStyle('padding-right', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('padding-right')" (ngModelChange)="updateStyle('padding-right', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Right</div>
@@ -44,7 +47,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('padding-bottom')" (ngModelChange)="updateStyle('padding-bottom', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('padding-bottom')" (ngModelChange)="updateStyle('padding-bottom', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Bottom</div>
@@ -52,7 +56,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('padding-left')" (ngModelChange)="updateStyle('padding-left', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('padding-left')" (ngModelChange)="updateStyle('padding-left', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Left</div>
@@ -64,7 +69,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('margin-top')" (ngModelChange)="updateStyle('margin-top', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('margin-top')" (ngModelChange)="updateStyle('margin-top', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Top</div>
@@ -72,7 +78,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('margin-right')" (ngModelChange)="updateStyle('margin-right', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('margin-right')" (ngModelChange)="updateStyle('margin-right', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Right</div>
@@ -80,7 +87,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('margin-bottom')" (ngModelChange)="updateStyle('margin-bottom', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('margin-bottom')" (ngModelChange)="updateStyle('margin-bottom', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Bottom</div>
@@ -88,7 +96,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('margin-left')" (ngModelChange)="updateStyle('margin-left', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('margin-left')" (ngModelChange)="updateStyle('margin-left', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Left</div>
@@ -110,19 +119,22 @@
   <div nz-row nzGutter="6">
     <div nz-col nzSpan="6">
       <nz-input-group nzSuffix="px">
-        <input nz-input [ngModel]="getStyle('border-width')" (ngModelChange)="updateStyle('border-width', $event)" placeholder="1" />
+        <input nz-input [ngModel]="getStyle('border-width')" (ngModelChange)="updateStyle('border-width', $event)"
+          placeholder="1" />
       </nz-input-group>
     </div>
     <div nz-col nzSpan="10">
       <nz-input-group [nzPrefix]="borderPreview">
-        <input type="text" [ngModel]="getStyle('border-color')" (ngModelChange)="updateStyle('border-color', $event)" nz-input placeholder="#FFFFFF" />
+        <input type="text" [ngModel]="getStyle('border-color')" (ngModelChange)="updateStyle('border-color', $event)"
+          nz-input placeholder="#FFFFFF" />
       </nz-input-group>
       <ng-template #borderPreview>
         <div class="color-preview"></div>
       </ng-template>
     </div>
     <div nz-col nzSpan="8">
-      <nz-select ngModel="lucy" [ngModel]="getStyle('border-style')" (ngModelChange)="updateStyle('border-style', $event)">
+      <nz-select [ngModel]="getStyle('border-style')"
+        (ngModelChange)="updateStyle('border-style', $event)">
         <nz-option nzValue="solid" nzLabel="Solid"></nz-option>
         <nz-option nzValue="dotted" nzLabel="Dotted"></nz-option>
         <nz-option nzValue="dashed" nzLabel="Dashed"></nz-option>
@@ -135,7 +147,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('border-top-left-radius')" (ngModelChange)="updateStyle('border-top-left-radius', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('border-top-left-radius')"
+            (ngModelChange)="updateStyle('border-top-left-radius', $event)" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Top left</div>
@@ -143,7 +156,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('border-top-right-radius')" (ngModelChange)="updateStyle('border-top-right-radius', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('border-top-right-radius')"
+            (ngModelChange)="updateStyle('border-top-right-radius', $event)" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Top right</div>
@@ -151,7 +165,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('border-bottom-left-radius')" (ngModelChange)="updateStyle('border-bottom-left-radius', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('border-bottom-left-radius')"
+            (ngModelChange)="updateStyle('border-bottom-left-radius', $event)" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">B. right</div>
@@ -159,7 +174,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('border-bottom-right-radius')" (ngModelChange)="updateStyle('border-bottom-right-radius', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('border-bottom-right-radius')"
+            (ngModelChange)="updateStyle('border-bottom-right-radius', $event)" placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">B. left</div>
@@ -171,7 +187,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('shadow-x')" (ngModelChange)="updateStyle('shadow-x', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('shadow-x')" (ngModelChange)="updateStyle('shadow-x', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">X</div>
@@ -179,7 +196,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('shadow-y')" (ngModelChange)="updateStyle('shadow-y', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('shadow-y')" (ngModelChange)="updateStyle('shadow-y', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Y</div>
@@ -187,7 +205,8 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('shadow-blur')" (ngModelChange)="updateStyle('shadow-blur', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('shadow-blur')" (ngModelChange)="updateStyle('shadow-blur', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Blur</div>
@@ -195,21 +214,63 @@
     <div nz-col nzSpan="6">
       <div>
         <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('shadow-size')" (ngModelChange)="updateStyle('shadow-size', $event)" placeholder="0" />
+          <input nz-input [ngModel]="getStyle('shadow-size')" (ngModelChange)="updateStyle('shadow-size', $event)"
+            placeholder="0" />
         </nz-input-group>
       </div>
       <div class="label light">Size</div>
     </div>
     <div nz-col nzSpan="12">
       <nz-input-group [nzPrefix]="shadowPreview">
-        <input type="text" nz-input [ngModel]="getStyle('shadow-color')" (ngModelChange)="updateStyle('shadow-color', $event)" placeholder="#FFFFFF" />
+        <input type="text" nz-input [ngModel]="getStyle('shadow-color')"
+          (ngModelChange)="updateStyle('shadow-color', $event)" placeholder="#FFFFFF" />
       </nz-input-group>
       <ng-template #shadowPreview>
         <div class="color-preview"></div>
       </ng-template>
     </div>
     <div nz-col nzSpan="12">
-      <label nz-checkbox [ngModel]="getStyle('shadow-inset')" (ngModelChange)="updateStyle('shadow-inset', $event)">Inside</label>
+      <label nz-checkbox [ngModel]="getStyle('shadow-inset')"
+        (ngModelChange)="updateStyle('shadow-inset', $event)">Inside</label>
+    </div>
+  </div>
+  <!--FLEXBOX-->
+  <h3>flexbox</h3>
+  <div class="label">Flex</div>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <label nz-checkbox [ngModel]="getStyle('flexbox')"
+        (ngModelChange)="updateStyle('flexbox', $event)">Enabled</label>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="24" style="text-align: center;">
+      <nz-radio-group [ngModel]="getStyle('flex-direction')" (ngModelChange)="updateStyle('flex-direction', $event)">
+        <label nz-radio-button nzValue="column">Column</label>
+        <label nz-radio-button nzValue="row">Row</label>
+      </nz-radio-group>
+    </div>
+  </div>
+  <div class="label">Flex Wrap</div>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <nz-radio-group [ngModel]="getStyle('flex-wrap')" (ngModelChange)="updateStyle('flex-wrap', $event)">
+        <label nz-radio-button nzValue="wrap">Wrap</label>
+        <label nz-radio-button nzValue="no-wrap">No Wrap</label>
+      </nz-radio-group>
+    </div>
+  </div>
+  <div class="label">Justify Content</div>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <nz-select [ngModel]="getStyle('justify-content')"
+        (ngModelChange)="updateStyle('justify-content', $event)">
+        <nz-option nzValue="flex-start" nzLabel="Start"></nz-option>
+        <nz-option nzValue="flex-end" nzLabel="End"></nz-option>
+        <nz-option nzValue="flex-center" nzLabel="Center"></nz-option>
+        <nz-option nzValue="space-between" nzLabel="Between"></nz-option>
+        <nz-option nzValue="space-around" nzLabel="Around"></nz-option>
+      </nz-select>
     </div>
   </div>
 </div>

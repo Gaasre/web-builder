@@ -46,9 +46,7 @@ export class LayerComponent implements OnInit {
   }
 
   onRightClick(target: Block) {
-    if (target.type.id === 1) {
-      this.contextMenuOpen = true;
-    }
+    this.contextMenuOpen = true;
     return false;
   }
 
@@ -70,6 +68,10 @@ export class LayerComponent implements OnInit {
   newButton() {
     this.data.newBlock(4, this.block);
     this.closeContextMenu();
+  }
+
+  deleteBlock(block: Block) {
+    this.data.deleteBlock(block);
   }
 
   closeContextMenu() {

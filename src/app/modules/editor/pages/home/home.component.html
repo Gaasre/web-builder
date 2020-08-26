@@ -10,12 +10,13 @@
       </nz-header>
       <nz-content>
         <div class="editor-content" [ngClass]="{mobile: isMobile}">
-          <app-layers-view [block]="block" *ngFor="let block of Blocks"></app-layers-view>
+          <app-layers-view (selectionChanged)="onSelectionChanged($event)" [block]="block" *ngFor="let block of Blocks"></app-layers-view>
         </div>
       </nz-content>
     </nz-layout>
     <nz-sider [nzWidth]="300" class="right-section" [nzTheme]="'light'">
       <app-block-toolbox *ngIf="selectedBlock?.type.id === 1" [selectedBlock]="selectedBlock"></app-block-toolbox>
+      <app-text-toolbox *ngIf="selectedBlock?.type.id === 2" [selectedBlock]="selectedBlock"></app-text-toolbox>
     </nz-sider>
   </nz-layout>
 </nz-layout>

@@ -3,17 +3,22 @@ import { Block } from 'src/app/shared/models/block.model';
 import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
-  selector: 'app-block-toolbox',
-  templateUrl: './block-toolbox.component.html',
-  styleUrls: ['./block-toolbox.component.scss']
+  selector: 'app-text-toolbox',
+  templateUrl: './text-toolbox.component.html',
+  styleUrls: ['./text-toolbox.component.scss']
 })
-export class BlockToolboxComponent implements OnInit {
-
+export class TextToolboxComponent implements OnInit {
   @Input() selectedBlock: Block;
 
   constructor(private storage: StorageService) { }
 
   ngOnInit(): void {
+  }
+
+  editContent(content: string) {
+    console.log(this.selectedBlock);
+    this.selectedBlock.content = content;
+    this.storage.updateBlock(this.selectedBlock);
   }
 
   getStyle(name: string) {
@@ -26,7 +31,6 @@ export class BlockToolboxComponent implements OnInit {
     if (found) {
       found.value = value;
     }
-    console.log(this.selectedBlock);
     this.storage.updateBlock(this.selectedBlock);
   }
 
