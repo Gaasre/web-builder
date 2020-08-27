@@ -86,4 +86,12 @@ export class LayerComponent implements OnInit {
   drop(event: CdkDragDrop<Block[]>) {
     moveItemInArray(this.block.children, event.previousIndex, event.currentIndex);
   }
+
+  editStart(block: Block) {
+    block.editing = true;
+  }
+
+  confirmEdit(block: Block) {
+    block.editing = false;
+  }
 }

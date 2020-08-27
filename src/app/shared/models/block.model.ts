@@ -11,6 +11,7 @@ export interface Block {
     content: string;
     open: boolean;
     selected: boolean;
+    editing: boolean;
     children: Block[];
 
     // Operations

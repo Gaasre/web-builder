@@ -25,7 +25,113 @@
             placeholder="0" />
         </nz-input-group>
       </div>
-      <div class="label light">Weight</div>
+      <div class="label light">Width</div>
+    </div>
+  </div>
+  <!--MARGIN-->
+  <div class="label">Margin</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('margin-top')" (ngModelChange)="updateStyle('margin-top', $event)"
+            placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Top</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('margin-right')" (ngModelChange)="updateStyle('margin-right', $event)"
+            placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Right</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('margin-bottom')" (ngModelChange)="updateStyle('margin-bottom', $event)"
+            placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Bottom</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('margin-left')" (ngModelChange)="updateStyle('margin-left', $event)"
+            placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Left</div>
+    </div>
+  </div>
+  <!--BORDER-->
+  <div class="label">Border</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="6">
+      <nz-input-group nzSuffix="px">
+        <input nz-input [ngModel]="getStyle('border-width')" (ngModelChange)="updateStyle('border-width', $event)"
+          placeholder="1" />
+      </nz-input-group>
+    </div>
+    <div nz-col nzSpan="10">
+      <nz-input-group [nzPrefix]="borderPreview">
+        <input type="text" [ngModel]="getStyle('border-color')" (ngModelChange)="updateStyle('border-color', $event)"
+          nz-input placeholder="#FFFFFF" />
+      </nz-input-group>
+      <ng-template #borderPreview>
+        <div class="color-preview"></div>
+      </ng-template>
+    </div>
+    <div nz-col nzSpan="8">
+      <nz-select [ngModel]="getStyle('border-style')" (ngModelChange)="updateStyle('border-style', $event)">
+        <nz-option nzValue="solid" nzLabel="Solid"></nz-option>
+        <nz-option nzValue="dotted" nzLabel="Dotted"></nz-option>
+        <nz-option nzValue="dashed" nzLabel="Dashed"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+  <!--RADIUS-->
+  <div class="label">Radius</div>
+  <div nz-row nzGutter="6">
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('border-top-left-radius')"
+            (ngModelChange)="updateStyle('border-top-left-radius', $event)" placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Top left</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('border-top-right-radius')"
+            (ngModelChange)="updateStyle('border-top-right-radius', $event)" placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Top right</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('border-bottom-left-radius')"
+            (ngModelChange)="updateStyle('border-bottom-left-radius', $event)" placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">B. right</div>
+    </div>
+    <div nz-col nzSpan="6">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('border-bottom-right-radius')"
+            (ngModelChange)="updateStyle('border-bottom-right-radius', $event)" placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">B. left</div>
     </div>
   </div>
 </div>

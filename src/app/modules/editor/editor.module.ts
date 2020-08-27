@@ -20,6 +20,7 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
@@ -50,6 +51,7 @@ import { IconToolboxComponent } from './components/icon-toolbox/icon-toolbox.com
     DragDropModule,
     NzInputNumberModule,
     NzDividerModule,
+    ClipboardModule,
     SharedModule
   ]
 })

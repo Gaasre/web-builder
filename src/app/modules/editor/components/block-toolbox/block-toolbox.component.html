@@ -116,6 +116,17 @@
   </div>
   <!--BORDER-->
   <div class="label">Border</div>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <nz-radio-group [ngModel]="getStyle('border-position')" (ngModelChange)="updateStyle('border-position', $event)">
+        <label nz-radio-button nzValue=""><i nz-icon nzType="border-outer" nzTheme="outline"></i></label>
+        <label nz-radio-button nzValue="top"><i nz-icon nzType="border-top" nzTheme="outline"></i></label>
+        <label nz-radio-button nzValue="right"><i nz-icon nzType="border-right" nzTheme="outline"></i></label>
+        <label nz-radio-button nzValue="bottom"><i nz-icon nzType="border-bottom" nzTheme="outline"></i></label>
+        <label nz-radio-button nzValue="left"><i nz-icon nzType="border-left" nzTheme="outline"></i></label>
+      </nz-radio-group>
+    </div>
+  </div>
   <div nz-row nzGutter="6">
     <div nz-col nzSpan="6">
       <nz-input-group nzSuffix="px">

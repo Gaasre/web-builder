@@ -1,8 +1,6 @@
 @import '../../../../styles/colors.scss';
 
 .content {
-    padding: 2px;
-    border: 1px solid #ffffff00;
     cursor: pointer;
     .bloc-content {
         height: 32px;
@@ -10,6 +8,9 @@
     }
     &:hover {
         border-color: $primary-400 !important;
+    }
+    p {
+        margin-bottom: 0;
     }
 
 }

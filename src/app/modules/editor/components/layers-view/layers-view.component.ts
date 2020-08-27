@@ -43,6 +43,14 @@ export class LayersViewComponent implements OnInit {
         } else if (b.name === 'flexbox') {
           // tslint:disable-next-line:no-string-literal
           css['display'] = b.value ? 'flex' : 'block';
+        } else if (b.name === 'border-position') {
+          return;
+        } else if (b.name === 'border-width' || b.name === 'border-style' || b.name === 'border-color') {
+          const position = this.block.style.find(x => x.name === 'border-position');
+          if (position) {
+            const parsedBorder = position.value === '' ? 'border' : 'border-' + position.value;
+            css[b.name.replace('border', parsedBorder)] = isNaN(b.value) ? b.value : b.value + 'px';
+          }
         } else {
           css[b.name] = isNaN(b.value) || b.name === 'font-weight' ? b.value : b.value + 'px';
         }

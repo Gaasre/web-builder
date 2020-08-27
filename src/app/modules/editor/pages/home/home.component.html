@@ -1,6 +1,12 @@
 <nz-layout>
   <nz-sider [nzWidth]="250" class="left-section" [nzTheme]="'light'">
     <app-layers (selectionChanged)="onSelectionChanged($event)"></app-layers>
+    <div style="position: absolute; bottom: 0px; width: 100%;">
+      <button nzType="default" nz-button (click)="copyJson()" nzBlock>Copy
+        JSON</button>
+      <button nzType="primary" nz-button (click)="newBlock()" nzBlock>New
+        Block</button>
+    </div>
   </nz-sider>
   <nz-layout>
     <nz-layout>
@@ -10,7 +16,8 @@
       </nz-header>
       <nz-content>
         <div class="editor-content" [ngClass]="{mobile: isMobile}">
-          <app-layers-view (selectionChanged)="onSelectionChanged($event)" [block]="block" *ngFor="let block of Blocks"></app-layers-view>
+          <app-layers-view (selectionChanged)="onSelectionChanged($event)" [block]="block" *ngFor="let block of Blocks">
+          </app-layers-view>
         </div>
       </nz-content>
     </nz-layout>
