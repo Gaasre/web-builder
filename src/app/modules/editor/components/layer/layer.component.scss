@@ -53,10 +53,10 @@
         &:hover {
           color: $primary-400;
         }
+        &:nth-last-child(3) {
+          border-bottom: 1px solid $primary-100;
+        }
         &:last-of-type {
-          &:not(:only-of-type) {
-            border-top: 1px solid $primary-100;
-          }
           color: $danger;
           &:hover {
             color: $danger-400 !important;

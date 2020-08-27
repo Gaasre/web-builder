@@ -10,7 +10,7 @@
             nz-input placeholder="#FFFFFF" />
         </nz-input-group>
         <ng-template #colorPreview>
-          <div class="color-preview"></div>
+          <div [ngStyle]="{background: getStyle('background')}" class="color-preview"></div>
         </ng-template>
       </div>
     </div>
@@ -140,7 +140,7 @@
           nz-input placeholder="#FFFFFF" />
       </nz-input-group>
       <ng-template #borderPreview>
-        <div class="color-preview"></div>
+        <div [ngStyle]="{background: getStyle('border-color')}" class="color-preview"></div>
       </ng-template>
     </div>
     <div nz-col nzSpan="8">
@@ -237,7 +237,7 @@
           (ngModelChange)="updateStyle('shadow-color', $event)" placeholder="#FFFFFF" />
       </nz-input-group>
       <ng-template #shadowPreview>
-        <div class="color-preview"></div>
+        <div [ngStyle]="{background: getStyle('shadow-color')}" class="color-preview"></div>
       </ng-template>
     </div>
     <div nz-col nzSpan="12">

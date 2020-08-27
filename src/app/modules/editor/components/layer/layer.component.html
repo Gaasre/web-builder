@@ -29,6 +29,7 @@
         </li>
         <li *ngIf="block.type.id === 1" (click)="newIcon()"><i nz-icon nzType="smile" nzTheme="outline"></i> New Icon
         </li>
+        <li (click)="duplicateBlock(block)"><i nz-icon nzType="copy" nzTheme="outline"></i> Duplicate</li>
         <li (click)="deleteBlock(block)"><i nz-icon nzType="delete" nzTheme="outline"></i> Delete</li>
       </ul>
     </div>

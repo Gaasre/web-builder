@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   isMobile = false;
   selectedBlock = null;
+  leftCollapsed = false;
 
   constructor(private data: StorageService, private clipboard: Clipboard) { }
 

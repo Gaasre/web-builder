@@ -94,4 +94,8 @@ export class LayerComponent implements OnInit {
   confirmEdit(block: Block) {
     block.editing = false;
   }
+
+  duplicateBlock(block: Block) {
+    this.data.duplicateBlock(block);
+  }
 }

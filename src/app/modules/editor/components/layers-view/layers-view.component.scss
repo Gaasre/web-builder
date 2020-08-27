@@ -2,12 +2,14 @@
 
 .content {
     cursor: pointer;
+    outline: 1px solid #ffffff00;
+    transition: all 300ms;
     .bloc-content {
         height: 32px;
         padding: 4px 11px;
     }
     &:hover {
-        border-color: $primary-400 !important;
+        outline-color: $info-400 !important;
     }
     p {
         margin-bottom: 0;

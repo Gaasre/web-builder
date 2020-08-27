@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Block } from '../models/block.model';
 import { Type } from '../models/type.model';
 import { findDeep, mapValuesDeep, filterDeep } from 'deepdash-es/standalone';
+import * as cloneDeep from 'lodash/cloneDeep';
 
 @Injectable({
   providedIn: 'root'
@@ -4087,7 +4088,7 @@ export class StorageService {
       ]
     }];
   }
-  nextId = 2;
+  nextId = 40;
 
   Types: Type[] = [];
 
@@ -4139,74 +4140,30 @@ export class StorageService {
     }, { childrenPath: ['children'], onFalse: { skipChildren: true } });
   }
 
-  newBlock(typeID: number, parent: Block): void {
-    let defaultStyle = [];
-    if (typeID === 1) {
-      defaultStyle = [
-        { name: 'background', value: '#fff' },
-        { name: 'padding-top', value: 0 },
-        { name: 'padding-right', value: 0 },
-        { name: 'padding-bottom', value: 0 },
-        { name: 'padding-left', value: 0 },
-        { name: 'margin-top', value: 0 },
-        { name: 'margin-right', value: 0 },
-        { name: 'margin-bottom', value: 0 },
-        { name: 'margin-left', value: 0 },
-        { name: 'text-align', value: 'left' },
-        { name: 'border-position', value: '' },
-        { name: 'border-width', value: 1 },
-        { name: 'border-style', value: 'solid' },
-        { name: 'border-color', value: '#ffffff00' },
-        { name: 'border-top-left-radius', value: 0 },
-        { name: 'border-top-right-radius', value: 0 },
-        { name: 'border-bottom-left-radius', value: 0 },
-        { name: 'border-bottom-right-radius', value: 0 },
-        { name: 'shadow-x', value: 0 },
-        { name: 'shadow-y', value: 0 },
-        { name: 'shadow-blur', value: 0 },
-        { name: 'shadow-size', value: 0 },
-        { name: 'shadow-color', value: '#000' },
-        { name: 'shadow-inset', value: false },
-        { name: 'flexbox', value: false },
-        { name: 'flex-direction', value: 'row' },
-        { name: 'flex-wrap', value: 'wrap' },
-        { name: 'justify-content', value: 'flex-start' },
-      ];
-    } else if (typeID === 2) {
-      defaultStyle = [
-        { name: 'color', value: '#000' },
-        { name: 'font-size', value: 12 },
-        { name: 'font-weight', value: '500' },
-      ];
-    } else if (typeID === 3) {
-      defaultStyle = [
-        { name: 'height', value: 100 },
-        { name: 'width', value: 100 },
-        { name: 'margin-top', value: 0 },
-        { name: 'margin-right', value: 0 },
-        { name: 'margin-bottom', value: 0 },
-        { name: 'margin-left', value: 0 },
-        { name: 'border-width', value: 0 },
-        { name: 'border-style', value: 'solid' },
-        { name: 'border-color', value: '#ffffff' },
-        { name: 'border-top-left-radius', value: 0 },
-        { name: 'border-top-right-radius', value: 0 },
-        { name: 'border-bottom-left-radius', value: 0 },
-        { name: 'border-bottom-right-radius', value: 0 },
-      ];
-    } else if (typeID === 5) {
-      defaultStyle = [
-        { name: 'font-size', value: 12 },
-        { name: 'font-weight', value: '500' },
-        { name: 'color', value: '#000' },
-        { name: 'margin-top', value: 0 },
-        { name: 'margin-right', value: 0 },
-        { name: 'margin-bottom', value: 0 },
-        { name: 'margin-left', value: 0 },
-      ];
+  duplicateBlock(block: Block) {
+    const found = findDeep(this.Blocks, (value, key) => value.id === block.id, { childrenPath: ['children'] }) as any;
+    let child = JSON.parse(JSON.stringify(block));
+    if (found.context.depth > 1) {
+      child.id = this.nextId;
+      child = mapValuesDeep(child, (value) => {
+        value.id = this.nextId;
+        this.nextId++;
+        return value;
+      }, { childrenPath: ['children'] });
+      found.parent.children = [...found.parent.children, child];
+      this.updateBlock(found.parent);
     } else {
-      defaultStyle = [];
+      child = mapValuesDeep(child, (value) => {
+        value.id = this.nextId;
+        this.nextId++;
+        return value;
+      }, { childrenPath: ['children'] });
+      this.newRootBlock(child);
     }
+  }
+
+  newBlock(typeID: number, parent: Block): void {
+    const defaultStyle = JSON.parse(JSON.stringify(this.Types[typeID - 1].defaultStyle));
     const newBlock = {
       id: this.nextId,
       name: 'New ' + this.Types[typeID - 1].name + ' ' + this.nextId,
@@ -4224,51 +4181,26 @@ export class StorageService {
     this.nextId++;
   }
 
-  newRootBlock() {
-    const defaultStyle = [
-      { name: 'background', value: '#fff' },
-      { name: 'padding-top', value: 0 },
-      { name: 'padding-right', value: 0 },
-      { name: 'padding-bottom', value: 0 },
-      { name: 'padding-left', value: 0 },
-      { name: 'margin-top', value: 0 },
-      { name: 'margin-right', value: 0 },
-      { name: 'margin-bottom', value: 0 },
-      { name: 'margin-left', value: 0 },
-      { name: 'text-align', value: 'left' },
-      { name: 'border-position', value: '' },
-      { name: 'border-width', value: 1 },
-      { name: 'border-style', value: 'solid' },
-      { name: 'border-color', value: '#ffffff00' },
-      { name: 'border-top-left-radius', value: 0 },
-      { name: 'border-top-right-radius', value: 0 },
-      { name: 'border-bottom-left-radius', value: 0 },
-      { name: 'border-bottom-right-radius', value: 0 },
-      { name: 'shadow-x', value: 0 },
-      { name: 'shadow-y', value: 0 },
-      { name: 'shadow-blur', value: 0 },
-      { name: 'shadow-size', value: 0 },
-      { name: 'shadow-color', value: '#000' },
-      { name: 'shadow-inset', value: false },
-      { name: 'flexbox', value: false },
-      { name: 'flex-direction', value: 'row' },
-      { name: 'flex-wrap', value: 'wrap' },
-      { name: 'justify-content', value: 'flex-start' },
-    ];
-    const newBlock = {
-      id: this.nextId,
-      name: 'New ' + this.Types[0].name + ' ' + this.nextId,
-      type: { ...this.Types[0] },
-      style: defaultStyle,
-      hoverStyle: [],
-      content: 'New Block ' + this.nextId,
-      open: false,
-      selected: false,
-      editing: false,
-      children: []
-    };
-    this.Blocks = [...this.Blocks, newBlock];
-    this.nextId++;
+  newRootBlock(block?: Block) {
+    if (block) {
+      this.Blocks = [...this.Blocks, block];
+    } else {
+      const defaultStyle = JSON.parse(JSON.stringify(this.Types[0].defaultStyle));
+      const newBlock = {
+        id: this.nextId,
+        name: 'New ' + this.Types[0].name + ' ' + this.nextId,
+        type: { ...this.Types[0] },
+        style: defaultStyle,
+        hoverStyle: [],
+        content: 'New Block ' + this.nextId,
+        open: false,
+        selected: false,
+        editing: false,
+        children: []
+      };
+      this.Blocks = [...this.Blocks, newBlock];
+      this.nextId++;
+    }
   }
 }
 

@@ -16,7 +16,7 @@
             placeholder="#FFFFFF" />
         </nz-input-group>
         <ng-template #colorPreview>
-          <div class="color-preview"></div>
+          <div [ngStyle]="{background: getStyle('color')}" class="color-preview"></div>
         </ng-template>
       </div>
     </div>
