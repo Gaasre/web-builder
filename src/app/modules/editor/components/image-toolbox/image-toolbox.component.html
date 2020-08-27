@@ -1,1 +1,31 @@
-<p>image-toolbox works!</p>
+<div class="container">
+  <h3>url</h3>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <input nz-input (ngModelChange)="editContent($event)" [ngModel]="selectedBlock.content" placeholder="Image" />
+    </div>
+  </div>
+  <h3>appearance</h3>
+  <!--Size-->
+  <div class="label">Size</div>
+  <div nz-row nzGutter="12">
+    <div nz-col nzSpan="12">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('height')" (ngModelChange)="updateStyle('height', $event)"
+            placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Height</div>
+    </div>
+    <div nz-col nzSpan="12">
+      <div>
+        <nz-input-group nzSuffix="px">
+          <input nz-input [ngModel]="getStyle('width')" (ngModelChange)="updateStyle('width', $event)"
+            placeholder="0" />
+        </nz-input-group>
+      </div>
+      <div class="label light">Weight</div>
+    </div>
+  </div>
+</div>

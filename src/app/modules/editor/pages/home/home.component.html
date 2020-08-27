@@ -17,6 +17,8 @@
     <nz-sider [nzWidth]="300" class="right-section" [nzTheme]="'light'">
       <app-block-toolbox *ngIf="selectedBlock?.type.id === 1" [selectedBlock]="selectedBlock"></app-block-toolbox>
       <app-text-toolbox *ngIf="selectedBlock?.type.id === 2" [selectedBlock]="selectedBlock"></app-text-toolbox>
+      <app-image-toolbox *ngIf="selectedBlock?.type.id === 3" [selectedBlock]="selectedBlock"></app-image-toolbox>
+      <app-icon-toolbox *ngIf="selectedBlock?.type.id === 5" [selectedBlock]="selectedBlock"></app-icon-toolbox>
     </nz-sider>
   </nz-layout>
 </nz-layout>

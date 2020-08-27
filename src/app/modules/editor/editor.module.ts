@@ -26,12 +26,14 @@ import { FormsModule } from '@angular/forms';
 import { BlockToolboxComponent } from './components/block-toolbox/block-toolbox.component';
 import { ImageToolboxComponent } from './components/image-toolbox/image-toolbox.component';
 import { TextToolboxComponent } from './components/text-toolbox/text-toolbox.component';
+import { IconToolboxComponent } from './components/icon-toolbox/icon-toolbox.component';
 
 
 @NgModule({
   declarations: [HomeComponent, LayersComponent, LayerComponent,
     LayersViewComponent, BlockToolboxComponent, ImageToolboxComponent,
-     TextToolboxComponent],
+     TextToolboxComponent,
+     IconToolboxComponent],
   imports: [
     CommonModule,
     FormsModule,

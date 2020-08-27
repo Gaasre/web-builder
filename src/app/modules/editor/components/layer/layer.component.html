@@ -12,6 +12,7 @@
                 <li *ngIf="block.type.id === 1" (click)="newText()"><i nz-icon nzType="field-string" nzTheme="outline"></i> New Text</li>
                 <li *ngIf="block.type.id === 1" (click)="newPicture()"><i nz-icon nzType="picture" nzTheme="outline"></i> New Picture</li>
                 <li *ngIf="block.type.id === 1" (click)="newButton()"><i nz-icon nzType="form" nzTheme="outline"></i> New Button</li>
+                <li *ngIf="block.type.id === 1" (click)="newIcon()"><i nz-icon nzType="block" nzTheme="outline"></i> New Icon</li>
                 <li (click)="deleteBlock(block)"><i nz-icon nzType="delete" nzTheme="outline"></i> Delete</li>
             </ul>
         </div>

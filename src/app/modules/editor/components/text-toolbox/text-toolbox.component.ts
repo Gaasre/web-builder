@@ -16,7 +16,6 @@ export class TextToolboxComponent implements OnInit {
   }
 
   editContent(content: string) {
-    console.log(this.selectedBlock);
     this.selectedBlock.content = content;
     this.storage.updateBlock(this.selectedBlock);
   }

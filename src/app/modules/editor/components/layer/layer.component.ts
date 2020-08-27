@@ -70,6 +70,11 @@ export class LayerComponent implements OnInit {
     this.closeContextMenu();
   }
 
+  newIcon() {
+    this.data.newBlock(5, this.block);
+    this.closeContextMenu();
+  }
+
   deleteBlock(block: Block) {
     this.data.deleteBlock(block);
   }

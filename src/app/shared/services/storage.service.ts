@@ -62,6 +62,11 @@ export class StorageService {
         name: 'Button',
         defaultStyle: []
       },
+      {
+        id: 5,
+        name: 'Icon',
+        defaultStyle: []
+      },
     ];
     this.Blocks = [
       {
@@ -148,12 +153,13 @@ export class StorageService {
   }
 
   deleteBlock(block: Block) {
+    // delete children too
     this.Blocks = filterDeep(this.Blocks, (value) => {
       if (value.id !== block.id) {
         return true;
       }
       return false;
-    }, { childrenPath: ['children'] });
+    }, { childrenPath: ['children'], onFalse: { skipChildren: true } });
   }
 
   newBlock(typeID: number, parent: Block): void {
@@ -194,6 +200,16 @@ export class StorageService {
         { name: 'font-size', value: 12 },
         { name: 'font-weight', value: '500' },
       ];
+    } else if (typeID === 3) {
+      defaultStyle = [
+        { name: 'height', value: 100 },
+        { name: 'width', value: 100 },
+      ];
+    } else if (typeID === 5) {
+      defaultStyle = [
+        { name: 'font-size', value: 12 },
+        { name: 'font-weight', value: '500' },
+      ];
     } else {
       defaultStyle = [];
     }
@@ -203,7 +219,7 @@ export class StorageService {
       type: { ...this.Types[typeID - 1] },
       style: defaultStyle,
       hoverStyle: [],
-      content: 'New ' + this.Types[typeID - 1].name + ' ' + this.nextId,
+      content: typeID === 5 ? 'question' : 'New ' + this.Types[typeID - 1].name + ' ' + this.nextId,
       open: false,
       selected: false,
       children: []

@@ -4,9 +4,10 @@
   <button *ngIf="block.type.id === 4" [ngStyle]="toCssStyle()" nz-button nzType="default"
     (click)="selectBlock(block)">{{block.content}}</button>
 
-  <div (click)="selectBlock(block)" *ngIf="block.type.id === 3" [ngStyle]="toCssStyle()">
-    <img [src]="block.content">
-  </div>
+  <img (click)="selectBlock(block)" *ngIf="block.type.id === 3" [ngStyle]="toCssStyle()" [src]="block.content">
+  <i nz-icon [nzType]="block.content" nzTheme="outline" (click)="selectBlock(block)" *ngIf="block.type.id === 5"
+    [ngStyle]="toCssStyle()">
+  </i>
   <div (click)="selectBlock(block)" *ngIf="block.type.id === 1" [ngStyle]="toCssStyle()">
     <app-layers-view [block]="block" *ngFor="let block of block.children"></app-layers-view>
   </div>
