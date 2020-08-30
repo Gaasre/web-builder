@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Block } from '../models/block.model';
 import { Type } from '../models/type.model';
-import { findDeep, mapValuesDeep, filterDeep } from 'deepdash-es/standalone';
-import * as cloneDeep from 'lodash/cloneDeep';
+import { findDeep, mapValuesDeep, filterDeep, mapDeep } from 'deepdash-es/standalone';
 
 @Injectable({
   providedIn: 'root'
@@ -115,7 +114,7 @@ export class StorageService {
     // Facebook banner
     this.Blocks = [{
       id: 1,
-      name: 'Container',
+      name: 'Root',
       type: {
         id: 1,
         name: 'Block',
@@ -230,6 +229,7 @@ export class StorageService {
           }
         ]
       },
+      isRoot: true,
       style: [
         {
           name: 'background',
@@ -4201,6 +4201,25 @@ export class StorageService {
       this.Blocks = [...this.Blocks, newBlock];
       this.nextId++;
     }
+  }
+
+  allIds(block) {
+    const finalVals = [];
+    const vals = mapDeep(this.Blocks, (value) => {
+      if (value.children.length > 0 && value.id !== 1) {
+        return `${value.id}`;
+      }
+    }, { childrenPath: ['children'] });
+    vals.forEach(x => {
+      if (x) {
+        finalVals.push(x);
+      }
+    });
+    // console.log(block);
+    if (block && block.children.length > 0) {
+      finalVals.push('1');
+    }
+    return finalVals;
   }
 }
 

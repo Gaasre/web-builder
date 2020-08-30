@@ -12,6 +12,7 @@ export interface Block {
     open: boolean;
     selected: boolean;
     editing: boolean;
+    isRoot?: boolean;
     children: Block[];
 
     // Operations

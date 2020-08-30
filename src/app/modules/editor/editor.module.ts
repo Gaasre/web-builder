@@ -18,6 +18,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ClipboardModule } from '@angular/cdk/clipboard';
@@ -28,13 +29,15 @@ import { BlockToolboxComponent } from './components/block-toolbox/block-toolbox.
 import { ImageToolboxComponent } from './components/image-toolbox/image-toolbox.component';
 import { TextToolboxComponent } from './components/text-toolbox/text-toolbox.component';
 import { IconToolboxComponent } from './components/icon-toolbox/icon-toolbox.component';
+import { BlocksLibraryComponent } from './components/blocks-library/blocks-library.component';
 
 
 @NgModule({
   declarations: [HomeComponent, LayersComponent, LayerComponent,
     LayersViewComponent, BlockToolboxComponent, ImageToolboxComponent,
      TextToolboxComponent,
-     IconToolboxComponent],
+     IconToolboxComponent,
+     BlocksLibraryComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -52,6 +55,7 @@ import { IconToolboxComponent } from './components/icon-toolbox/icon-toolbox.com
     NzInputNumberModule,
     NzDividerModule,
     ClipboardModule,
+    NzTabsModule,
     SharedModule
   ]
 })

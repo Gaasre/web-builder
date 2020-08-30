@@ -1,0 +1,19 @@
+@import '../../../../styles/colors.scss';
+
+div {
+  &[nz-col] {
+    font-size: 48px;
+    text-align: center;
+    color: $primary;
+
+    &:not(:nth-last-child(2)) {
+      &:not(:last-child) {
+        border-bottom: 1px solid $primary-100;
+      }
+    }
+
+    &:nth-child(2n+1) {
+      border-right: 1px solid $primary-100;
+    }
+  }
+}

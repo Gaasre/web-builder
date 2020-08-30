@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, ViewChild } from '@angular/core';
 import { Block } from 'src/app/shared/models/block.model';
 import { StorageService } from 'src/app/shared/services/storage.service';
-import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
+import { moveItemInArray, CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-layer',
@@ -13,7 +13,13 @@ export class LayerComponent implements OnInit {
   @Input() block: Block;
   @Output() selectionChanged = new EventEmitter<Block>();
   @ViewChild('contextmenu') elementRef;
+
   contextMenuOpen = false;
+  isDragOver = false;
+  isDragStart = false;
+  dragBottom = false;
+  dragTop = false;
+  currentDrag: any;
 
   @HostListener('document:click', ['$event.target']) onMouseEnter(targetElement) {
     const clickedInside = this.elementRef.nativeElement.contains(targetElement);
@@ -83,8 +89,16 @@ export class LayerComponent implements OnInit {
     this.contextMenuOpen = false;
   }
 
-  drop(event: CdkDragDrop<Block[]>) {
-    moveItemInArray(this.block.children, event.previousIndex, event.currentIndex);
+  drop(event: CdkDragDrop<Block[]>, block) {
+    // tslint:disable-next-line:triple-equals
+    if (event.previousContainer.id == block.id) {
+      moveItemInArray(block.children, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        block.children,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 
   editStart(block: Block) {
@@ -97,5 +111,13 @@ export class LayerComponent implements OnInit {
 
   duplicateBlock(block: Block) {
     this.data.duplicateBlock(block);
+  }
+
+  allIds() {
+    return this.data.allIds(this.currentDrag);
+  }
+
+  changeDrag(e) {
+    this.currentDrag = e.source.data;
   }
 }

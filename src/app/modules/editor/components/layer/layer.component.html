@@ -29,13 +29,13 @@
         </li>
         <li *ngIf="block.type.id === 1" (click)="newIcon()"><i nz-icon nzType="smile" nzTheme="outline"></i> New Icon
         </li>
-        <li (click)="duplicateBlock(block)"><i nz-icon nzType="copy" nzTheme="outline"></i> Duplicate</li>
-        <li (click)="deleteBlock(block)"><i nz-icon nzType="delete" nzTheme="outline"></i> Delete</li>
+        <li [class]="block.type.id === 1 ? 'duplicate' : ''" *ngIf="!block.isRoot" (click)="duplicateBlock(block)"><i nz-icon nzType="copy" nzTheme="outline"></i> Duplicate</li>
+        <li class="delete" *ngIf="!block.isRoot" (click)="deleteBlock(block)"><i nz-icon nzType="delete" nzTheme="outline"></i> Delete</li>
       </ul>
     </div>
   </div>
-  <div cdkDropList (cdkDropListDropped)="drop($event)" class="children" *ngIf="block.open">
-    <div class="child" *ngFor="let block of block.children" cdkDrag>
+  <div cdkDropList [id]="block.id.toString()" [cdkDropListConnectedTo]="allIds()" [cdkDropListData]="block.children" (cdkDropListDropped)="drop($event, block)" class="children" *ngIf="block.open">
+    <div (cdkDragStarted)="changeDrag($event)" [cdkDragData]="block" class="child" *ngFor="let block of block.children" cdkDrag>
       <app-layer (selectionChanged)="onSelect($event)" [block]="block"></app-layer>
     </div>
   </div>

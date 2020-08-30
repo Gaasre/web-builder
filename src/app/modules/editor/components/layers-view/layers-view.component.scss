@@ -1,18 +1,50 @@
 @import '../../../../styles/colors.scss';
 
 .content {
-    cursor: pointer;
-    outline: 1px solid #ffffff00;
-    transition: all 300ms;
-    .bloc-content {
-        height: 32px;
-        padding: 4px 11px;
-    }
-    &:hover {
-        outline-color: $info-400 !important;
-    }
-    p {
-        margin-bottom: 0;
-    }
+  cursor: pointer;
+  outline: 1px solid #ffffff00;
+  transition: all 300ms;
+  position: relative;
+  margin-top: 1px;
 
+  .bloc-content {
+    height: 32px;
+    padding: 4px 11px;
+  }
+
+  &:hover {
+    outline-color: $info !important;
+  }
+
+  &.selected {
+    outline-color: $danger !important;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+}
+
+.global {
+  position: relative;
+
+  .selected {
+    &.menu {
+      top: -23px;
+      right: 0;
+      background: $danger;
+      color: #ffffff;
+      position: absolute;
+      padding: 0 2px;
+      border-top-right-radius: 2px;
+      border-top-left-radius: 2px;
+      transition: all 300ms;
+      cursor: pointer;
+
+      &:hover {
+        background: $danger-400;
+      }
+    }
+  }
 }
