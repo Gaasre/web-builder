@@ -44,4 +44,8 @@ export class HomeComponent implements OnInit {
     this.clipboard.copy(JSON.stringify(this.Blocks));
   }
 
+  html() {
+    this.data.getCss();
+  }
+
 }

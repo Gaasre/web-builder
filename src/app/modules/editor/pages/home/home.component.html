@@ -5,6 +5,7 @@
       <nz-tab nzTitle="Layers">
         <app-layers (selectionChanged)="onSelectionChanged($event)"></app-layers>
         <div style="position: absolute; bottom: 0px; width: 100%;">
+          <button nzType="primary" nz-button (click)="html()" nzBlock>test</button>
           <button nzType="primary" nz-button (click)="copyJson()" nzBlock>Copy
             JSON</button>
         </div>

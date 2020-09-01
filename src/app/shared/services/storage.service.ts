@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Block } from '../models/block.model';
 import { Type } from '../models/type.model';
-import { findDeep, mapValuesDeep, filterDeep, mapDeep } from 'deepdash-es/standalone';
+import { findDeep, mapValuesDeep, filterDeep, mapDeep, forEachDeep } from 'deepdash-es/standalone';
 
 @Injectable({
   providedIn: 'root'
@@ -4220,6 +4220,69 @@ export class StorageService {
       finalVals.push('1');
     }
     return finalVals;
+  }
+
+  // HTML & CSS
+  getHtmlRec(entry: Block) {
+    if (entry.children.length === 0) {
+      if (entry.type.id === 1) {
+        return `<div name="${entry.name}" id="id${entry.id}"></div>`;
+      } else if (entry.type.id === 2) {
+        return `<p name="${entry.name}" id="id${entry.id}">${entry.content}</p>`;
+      } else if (entry.type.id === 3) {
+        return `<img name="${entry.name}" id="id${entry.id}">`;
+      } else if (entry.type.id === 4) {
+        return `<button type="button" name="${entry.name}" id="id${entry.id}">${entry.content}</button>`;
+      } else if (entry.type.id === 5) {
+        return `<img src="/icons/${entry.content}.svg" name="${entry.name}" id="id${entry.id}">`;
+      }
+    }
+    if (entry.type.id === 1) {
+      let val = '';
+      entry.children.forEach(child => val += this.getHtmlRec(child));
+      return `<div name="${entry.name}" id="id${entry.id}">${val}</div>`;
+    } else {
+      return '';
+    }
+  }
+
+  toCssStyle(block: Block) {
+    const css = {};
+    const shadow = {};
+    block.style.forEach(b => {
+      if (b.name === 'shadow-x' || b.name === 'shadow-y' || b.name === 'shadow-blur'
+        || b.name === 'shadow-size' || b.name === 'shadow-color' || b.name === 'shadow-inset') {
+        shadow[b.name] = isNaN(b.value) || typeof b.value === 'boolean' ? b.value : b.value + 'px';
+      } else if (b.name === 'flexbox') {
+        // tslint:disable-next-line:no-string-literal
+        css['display'] = b.value ? 'flex' : 'block';
+      } else if (b.name === 'border-position') {
+        return;
+      } else if (b.name === 'border-width' || b.name === 'border-style' || b.name === 'border-color') {
+        const position = block.style.find(x => x.name === 'border-position');
+        if (position) {
+          const parsedBorder = position.value === '' ? 'border' : 'border-' + position.value;
+          css[b.name.replace('border', parsedBorder)] = isNaN(b.value) ? b.value : b.value + 'px';
+        }
+      } else {
+        css[b.name] = isNaN(b.value) || b.name === 'font-weight' ? b.value : b.value + 'px';
+      }
+    });
+    // tslint:disable-next-line:max-line-length
+    css['box-shadow'] = `${shadow['shadow-inset'] ? 'inset' : ''} ${shadow['shadow-x']} ${shadow['shadow-y']} ${shadow['shadow-x']} ${shadow['shadow-blur']} ${shadow['shadow-color']}`;
+    return css;
+  }
+
+  getHtml() {
+    console.log(this.getHtmlRec(this.Blocks[0]));
+  }
+
+  getCss() {
+    let css = '';
+    forEachDeep(this.Blocks, (value: Block) => {
+      css += `#id${value.id} ${JSON.stringify(this.toCssStyle(value)).replace(/"/g, '').replace(/,/g, ';')}\n`;
+    }, { childrenPath: ['children'] });
+    console.log(css);
   }
 }
 

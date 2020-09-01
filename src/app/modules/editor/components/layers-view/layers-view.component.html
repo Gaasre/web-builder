@@ -13,7 +13,7 @@
       <app-layers-view [block]="block" *ngFor="let block of block.children"></app-layers-view>
     </div>
   </div>
-  <div (click)="deleteBlock(block)" [ngStyle]="{display: block.selected ? 'block' : 'none'}" [ngClass]="{selected: block.selected}" class="menu">
+  <div *ngIf="block.id !== 1" (click)="deleteBlock(block)" [ngStyle]="{display: block.selected ? 'block' : 'none'}" [ngClass]="{selected: block.selected}" class="menu">
     <i nz-icon nzType="delete" nzTheme="outline"></i>
   </div>
 </div>
