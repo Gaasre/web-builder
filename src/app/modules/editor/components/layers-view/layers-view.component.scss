@@ -2,7 +2,7 @@
 
 .content {
   cursor: pointer;
-  outline: 1px solid #ffffff00;
+  outline: 2px solid #ffffff00;
   transition: all 300ms;
   position: relative;
   margin-top: 1px;
@@ -13,11 +13,13 @@
   }
 
   &:hover {
-    outline-color: $info !important;
+    outline-color: $primary !important;
+    outline-width: 2px;
   }
 
   &.selected {
-    outline-color: $danger !important;
+    outline-color: $primary !important;
+    outline-width: 1px;
   }
 
   p {

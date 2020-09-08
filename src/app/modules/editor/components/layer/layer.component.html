@@ -1,8 +1,17 @@
 <div>
   <div [ngClass]="{selected: block.selected}" (contextmenu)="onRightClick(block)" (click)="selectBlock(block)" nz-row
     class="content">
-    <i nz-col nzSpan="2" *ngIf="hasChildren" (click)="Toggle()" nz-icon [nzType]="block.open ? 'down' : 'right'"
+    <div nz-col nzSpan="2">
+      <i *ngIf="hasChildren" (click)="Toggle()" nz-icon [nzType]="block.open ? 'down' : 'right'"
       nzTheme="outline"></i>
+    </div>
+    <div nz-col nzSpan="2">
+      <i *ngIf="block.type.id === 1" nz-icon nzType="block" nzTheme="outline"></i>
+      <i *ngIf="block.type.id === 2" nz-icon nzType="field-string" nzTheme="outline"></i>
+      <i *ngIf="block.type.id === 3" nz-icon nzType="picture" nzTheme="outline"></i>
+      <i *ngIf="block.type.id === 4" nz-icon nzType="form" nzTheme="outline"></i>
+      <i *ngIf="block.type.id === 5" nz-icon nzType="smile" nzTheme="outline"></i>
+    </div>
     <span nz-col nzSpan="20" (dblclick)="editStart(block)">
       <p *ngIf="block.editing === false">{{block.name}}</p>
       <nz-input-group nzSize="small" *ngIf="block.editing === true" [nzSuffix]="iconCheck">
@@ -12,11 +21,6 @@
         <i nz-icon style="cursor: pointer;" (click)="confirmEdit(block)" nzType="check"></i>
       </ng-template>
     </span>
-    <i *ngIf="block.type.id === 1" nz-col nzSpan="2" nz-icon nzType="block" nzTheme="outline"></i>
-    <i *ngIf="block.type.id === 2" nz-col nzSpan="2" nz-icon nzType="field-string" nzTheme="outline"></i>
-    <i *ngIf="block.type.id === 3" nz-col nzSpan="2" nz-icon nzType="picture" nzTheme="outline"></i>
-    <i *ngIf="block.type.id === 4" nz-col nzSpan="2" nz-icon nzType="form" nzTheme="outline"></i>
-    <i *ngIf="block.type.id === 5" nz-col nzSpan="2" nz-icon nzType="smile" nzTheme="outline"></i>
     <div #contextmenu class="context-menu" [ngStyle]="{display: contextMenuOpen ? 'block' : 'none'}">
       <ul>
         <li *ngIf="block.type.id === 1" (click)="newBlock()"><i nz-icon nzType="block" nzTheme="outline"></i> New Block

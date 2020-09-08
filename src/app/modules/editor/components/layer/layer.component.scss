@@ -32,8 +32,7 @@
   .context-menu {
     width: 150px;
     border: 1px solid $primary-100;
-    border-radius: 4px;
-    padding: 5px;
+    border-radius: 8px;
     top: 30px;
     right: 50px;
     position: absolute;
@@ -47,19 +46,18 @@
 
       li {
         color: rgba(0, 0, 0, 0.65);
-        padding: 2px 5px;
+        padding: 8px 10px;
         transition: all 300ms;
 
         &:hover {
-          color: $primary-400;
+          background: $primary-100;
         }
         &.duplicate {
           border-top: 1px solid $primary-100;
         }
         &.delete {
-          color: $danger;
           &:hover {
-            color: $danger-400 !important;
+            background: $danger-300 !important;
           }
         }
       }

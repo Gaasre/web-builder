@@ -1,95 +1,116 @@
 <div class="container">
-  <h3>icon</h3>
-  <div nz-row>
-    <div nz-col nzSpan="24">
-      <nz-select nzShowSearch nzAllowClear (ngModelChange)="editContent($event)" [ngModel]="selectedBlock.content">
-        <nz-option *ngFor="let item of icons" [nzValue]="item.name" [nzLabel]="item.name"></nz-option>
-      </nz-select>
-    </div>
-  </div>
-  <h3>appearance</h3>
-   <!--BACKGROUND AND OPACITY-->
-   <div nz-row>
-    <div nz-col nzSpan="24">
-      <div class="label">Background</div>
-      <div>
-        <nz-input-group [nzPrefix]="colorPreview">
-          <input type="text" [ngModel]="getStyle('color')" (ngModelChange)="updateStyle('color', $event)"
-            nz-input placeholder="#FFFFFF" />
-        </nz-input-group>
-        <ng-template #colorPreview>
-          <div [ngStyle]="{background: getStyle('color')}" class="color-preview"></div>
-        </ng-template>
+  <mat-accordion multi>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Select Icon
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-select nzShowSearch nzAllowClear (ngModelChange)="editContent($event)" [ngModel]="selectedBlock.content">
+            <nz-option *ngFor="let item of icons" [nzValue]="item.name" [nzLabel]="item.name"></nz-option>
+          </nz-select>
+        </div>
       </div>
-    </div>
-  </div>
-  <!--FONT-->
-  <div class="label">Font</div>
-  <div nz-row nzGutter="12">
-    <div nz-col nzSpan="12">
-      <div>
-        <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('font-size')" (ngModelChange)="updateStyle('font-size', $event)"
-            placeholder="0" />
-        </nz-input-group>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Appearance
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <!--BACKGROUND AND OPACITY-->
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <div class="label">Color</div>
+          <div>
+            <nz-input-group [nzPrefix]="colorPreview">
+              <input type="text" [ngModel]="getStyle('color')" (ngModelChange)="updateStyle('color', $event)" nz-input
+                placeholder="#FFFFFF" />
+            </nz-input-group>
+            <ng-template #colorPreview>
+              <div [ngStyle]="{background: getStyle('color')}" class="color-preview"></div>
+            </ng-template>
+          </div>
+        </div>
       </div>
-      <div class="label light">Size</div>
-    </div>
-    <div nz-col nzSpan="12">
-      <div>
-        <nz-select [ngModel]="getStyle('font-weight')" (ngModelChange)="updateStyle('font-weight', $event)">
-          <nz-option nzValue="100" nzLabel="100"></nz-option>
-          <nz-option nzValue="200" nzLabel="200"></nz-option>
-          <nz-option nzValue="300" nzLabel="300"></nz-option>
-          <nz-option nzValue="400" nzLabel="400"></nz-option>
-          <nz-option nzValue="500" nzLabel="500"></nz-option>
-          <nz-option nzValue="600" nzLabel="600"></nz-option>
-          <nz-option nzValue="700" nzLabel="700"></nz-option>
-          <nz-option nzValue="800" nzLabel="800"></nz-option>
-          <nz-option nzValue="900" nzLabel="900"></nz-option>
-        </nz-select>
+      <!--FONT-->
+      <div class="label">Font</div>
+      <div nz-row nzGutter="12">
+        <div nz-col nzSpan="12">
+          <div>
+            <nz-input-group nzSuffix="px">
+              <input nz-input [ngModel]="getStyle('font-size')" (ngModelChange)="updateStyle('font-size', $event)"
+                placeholder="0" />
+            </nz-input-group>
+          </div>
+          <div class="label light">Size</div>
+        </div>
+        <div nz-col nzSpan="12">
+          <div>
+            <nz-select [ngModel]="getStyle('font-weight')" (ngModelChange)="updateStyle('font-weight', $event)">
+              <nz-option nzValue="100" nzLabel="100"></nz-option>
+              <nz-option nzValue="200" nzLabel="200"></nz-option>
+              <nz-option nzValue="300" nzLabel="300"></nz-option>
+              <nz-option nzValue="400" nzLabel="400"></nz-option>
+              <nz-option nzValue="500" nzLabel="500"></nz-option>
+              <nz-option nzValue="600" nzLabel="600"></nz-option>
+              <nz-option nzValue="700" nzLabel="700"></nz-option>
+              <nz-option nzValue="800" nzLabel="800"></nz-option>
+              <nz-option nzValue="900" nzLabel="900"></nz-option>
+            </nz-select>
+          </div>
+          <div class="label light">Weight</div>
+        </div>
       </div>
-      <div class="label light">Weight</div>
-    </div>
-  </div>
-  <!--MARGIN-->
-  <div class="label">Margin</div>
-  <div nz-row nzGutter="6">
-    <div nz-col nzSpan="6">
-      <div>
-        <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('margin-top')" (ngModelChange)="updateStyle('margin-top', $event)"
-            placeholder="0" />
-        </nz-input-group>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Spacing
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <!--MARGIN-->
+      <div class="label">Margin</div>
+      <div nz-row nzGutter="6">
+        <div nz-col nzSpan="6">
+          <div>
+            <nz-input-group nzSuffix="px">
+              <input nz-input [ngModel]="getStyle('margin-top')" (ngModelChange)="updateStyle('margin-top', $event)"
+                placeholder="0" />
+            </nz-input-group>
+          </div>
+          <div class="label light">Top</div>
+        </div>
+        <div nz-col nzSpan="6">
+          <div>
+            <nz-input-group nzSuffix="px">
+              <input nz-input [ngModel]="getStyle('margin-right')" (ngModelChange)="updateStyle('margin-right', $event)"
+                placeholder="0" />
+            </nz-input-group>
+          </div>
+          <div class="label light">Right</div>
+        </div>
+        <div nz-col nzSpan="6">
+          <div>
+            <nz-input-group nzSuffix="px">
+              <input nz-input [ngModel]="getStyle('margin-bottom')"
+                (ngModelChange)="updateStyle('margin-bottom', $event)" placeholder="0" />
+            </nz-input-group>
+          </div>
+          <div class="label light">Bottom</div>
+        </div>
+        <div nz-col nzSpan="6">
+          <div>
+            <nz-input-group nzSuffix="px">
+              <input nz-input [ngModel]="getStyle('margin-left')" (ngModelChange)="updateStyle('margin-left', $event)"
+                placeholder="0" />
+            </nz-input-group>
+          </div>
+          <div class="label light">Left</div>
+        </div>
       </div>
-      <div class="label light">Top</div>
-    </div>
-    <div nz-col nzSpan="6">
-      <div>
-        <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('margin-right')" (ngModelChange)="updateStyle('margin-right', $event)"
-            placeholder="0" />
-        </nz-input-group>
-      </div>
-      <div class="label light">Right</div>
-    </div>
-    <div nz-col nzSpan="6">
-      <div>
-        <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('margin-bottom')" (ngModelChange)="updateStyle('margin-bottom', $event)"
-            placeholder="0" />
-        </nz-input-group>
-      </div>
-      <div class="label light">Bottom</div>
-    </div>
-    <div nz-col nzSpan="6">
-      <div>
-        <nz-input-group nzSuffix="px">
-          <input nz-input [ngModel]="getStyle('margin-left')" (ngModelChange)="updateStyle('margin-left', $event)"
-            placeholder="0" />
-        </nz-input-group>
-      </div>
-      <div class="label light">Left</div>
-    </div>
-  </div>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

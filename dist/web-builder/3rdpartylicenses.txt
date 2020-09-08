@@ -87,6 +87,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+@angular/material/expansion
+
 @angular/platform-browser
 MIT
 
@@ -251,6 +253,8 @@ ng-zorro-antd/popover
 ng-zorro-antd/radio
 
 ng-zorro-antd/select
+
+ng-zorro-antd/switch
 
 ng-zorro-antd/tabs
 
